@@ -12,8 +12,7 @@ var load_state = {
         game.load.spritesheet("breakfast_bg", "assets/bg/breakfast_bg_anim.png", 800, 600);
         game.load.spritesheet("office_bg", "assets/bg/office_bg_anim.png", 800, 600);
         game.load.spritesheet("breakroom_bg", "assets/bg/breakroom_bg_anim.png", 800, 600);
-		// game.load.audio("gnossiene_2", "assets/music/gnossiene_2.mp3");
-        game.load.audio("gnossiene_2", "https://github.com/kevino5233/eggs_for_breakfast/blob/master/assets/music/gnossiene_2.mp3");
+		game.load.audio("gnossiene_2", "assets/music/gnossiene_2.mp3");
 		game.load.audio("speech", "assets/SFX/speech.wav");
 		game.load.audio("error", "assets/SFX/error.wav");
 		game.load.audio("pushpop", "assets/SFX/push_pop_text.wav");
@@ -32,17 +31,17 @@ var load_state = {
 		this.sounds.push(game.add.audio("pushpop"));
     },
     update: function(){
-		// var i = 0;
-		// while (i < this.sounds.length){
-		// 	if (this.sounds[i].isDecoding){
-		// 		break;
-		// 	}
-		// 	i++;
-		// }
-		// if (i == this.sounds.length){
-		// 	game.state.start("intro");
-        //     //game.state.start("test");
-		// }
+		var i = 0;
+		while (i < this.sounds.length){
+			if (this.sounds[i].isDecoding){
+				break;
+			}
+			i++;
+		}
+		if (i == this.sounds.length){
+			game.state.start("intro");
+            //game.state.start("test");
+		}
     },
     resize: function(){
     },
