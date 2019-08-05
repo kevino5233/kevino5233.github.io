@@ -1,0 +1,2941 @@
+(dp0
+S'buildDestination'
+p1
+VC:\u005cUsers\u005cKevino\u005cDocuments\u005cCoding\u005cGames\u005cAesop's Cave\u005caesop_cave.html
+p2
+sS'saveDestination'
+p3
+VC:\u005cUsers\u005cKevino\u005cDocuments\u005cCoding\u005cGames\u005cAesop's Cave\u005caesop_cave.tws
+p4
+sS'metadata'
+p5
+(dp6
+sS'target'
+p7
+S'jonah'
+p8
+sS'storyPanel'
+p9
+(dp10
+S'widgets'
+p11
+(lp12
+(dp13
+S'selected'
+p14
+I00
+sS'pos'
+p15
+(lp16
+I11
+aI9
+asS'passage'
+p17
+(itiddlywiki
+Tiddler
+p18
+(dp20
+S'text'
+p21
+V<<set $introsound to "./intro.wav">><<set $cavesound to "./cave.wav">><<loopsound $introsound>><strong>Aesop's Cave</strong>\u000aBy Kevin Sun and Matthewit Dechatech\u000a\u000aPlease enter your name.\u000a<<textinput $name \u000a[[Start my adventure!|Beggining]]>>
+p22
+sS'title'
+p23
+VStart
+p24
+sS'modified'
+p25
+ctime
+struct_time
+p26
+((I2015
+I3
+I28
+I19
+I7
+I28
+I5
+I87
+I1
+tp27
+(dp28
+tp29
+Rp30
+sS'tags'
+p31
+(lp32
+sS'created'
+p33
+g26
+((I2015
+I3
+I27
+I22
+I9
+I22
+I4
+I86
+I1
+tp34
+(dp35
+tp36
+Rp37
+sbsa(dp38
+g14
+I00
+sg15
+(lp39
+I10
+aI150
+asg17
+(itiddlywiki
+Tiddler
+p40
+(dp41
+g21
+VAesop's Cave
+p42
+sg23
+VStoryTitle
+p43
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I54
+I47
+I5
+I87
+I1
+tp44
+(dp45
+tp46
+Rp47
+sg31
+(lp48
+sg33
+g26
+((I2015
+I3
+I27
+I22
+I9
+I22
+I4
+I86
+I1
+tp49
+(dp50
+tp51
+Rp52
+sbsa(dp53
+g14
+I00
+sg15
+(lp54
+I10
+aI290
+asg17
+(itiddlywiki
+Tiddler
+p55
+(dp56
+g21
+VKevin Sun and Matthewit Dechatech
+p57
+sg23
+VStoryAuthor
+p58
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I54
+I38
+I5
+I87
+I1
+tp59
+(dp60
+tp61
+Rp62
+sg31
+(lp63
+sg33
+g26
+((I2015
+I3
+I27
+I22
+I9
+I22
+I4
+I86
+I1
+tp64
+(dp65
+tp66
+Rp67
+sbsa(dp68
+g14
+I00
+sg15
+(lp69
+F6.0
+aF428.0
+asg17
+(itiddlywiki
+Tiddler
+p70
+(dp71
+g21
+Vvar names = [\u000a{\u000a	name: "Don Quixote",\u000a	used: false\u000a},\u000a{\u000a	name: "King Arthur",\u000a	used: false\u000a},\u000a{\u000a	name: "Ted Cruz",\u000a	used: false\u000a},\u000a{\u000a	name: "Sir Lancelot",\u000a	used: false\u000a},\u000a{\u000a	name: "Davy Crockett",\u000a	used: false\u000a},\u000a{\u000a	name: "Gandhi",\u000a	used: false\u000a},\u000a{\u000a	name: "Resident Sleeper",\u000a	used: false\u000a},\u000a{\u000a	name: "Plato",\u000a	used: false\u000a}\u000a];\u000a\u000avar scenes = [\u000a{\u000a	name: "Sudden Encounter",\u000a	encountered: false\u000a},\u000a{\u000a	name: "Out of Food",\u000a	encountered: false\u000a},\u000a{\u000a	name: "Running in Circles",\u000a	encountered: false\u000a}\u000a];\u000a\u000avar bios = {\u000a	experience: ["He is a relative newcomer. He is not as battle-hardened as the rest of your partners and is more prone to making mistakes. ",\u000a				"",\u000a				"He has been with you since the formation of the team. He has developed a tried-and-true sense of intuition. "],\u000a	mercy: ["He is borderline sadist. He holds contempt for the weak and feels that life should be a prize worthy only of the greatest. ",\u000a			"",\u000a			"He is magnanimous. He believes that all creatures of all races are naturally good and that all should have the chance to manifest this. "],\u000a	greed: ["He is benevolent. He is a well-to-do individual and is even willing to forego his cut for this adventure.",\u000a			"",\u000a			"He lusts for wealth. Prior to the expedition he shamelessly argued for an enormous share in the loot. "],\u000a	bravery: ["He is a coward. He jumps at every twist and creak of a dungeon and has developed a reputation of running away from hard fights. ",\u000a			"",\u000a			"He is courageous. He is a role model to the rest of your group as he is often the last to run away from a fight. "],\u000a	wit: ["He is a dumbass. Last expedition you were nearly scalded by a trap that he failed to avoid, his excuse being that it had offered free candy. ",\u000a		"",\u000a		"He is crafty. You have managed to avoid many fights altogether because of his attention to alternate routes as well as his sharp wits. "],\u000a	paranoia: ["He is laid back. He easily trusts others and believes in your ability to manage the inner politics of the team. ",\u000a			"",\u000a			"He is paranoid. He believes that the creatures of the dark and his peers alike are out to get him. "]\u000a};\u000a\u000avar party = [\u000a{\u000a	name: "",\u000a	bio: "",\u000a	alive: true,\u000a	acted: false,\u000a	experience: 0,\u000a	mercy: 0,\u000a	greed: 0,\u000a	bravery: 0,\u000a	wit: 0,\u000a	suspicion: 0,\u000a	paranoia: 0\u000a},\u000a{\u000a	name: "",\u000a	bio: "",\u000a	alive: true,\u000a	acted: false,\u000a	experience: 0,\u000a	mercy: 0,\u000a	greed: 0,\u000a	bravery: 0,\u000a	wit: 0,\u000a	suspicion: 0,\u000a	paranoia: 0\u000a},\u000a{\u000a	name: "",\u000a	bio: "",\u000a	alive: true,\u000a	acted: false,\u000a	experience: 0,\u000a	mercy: 0,\u000a	greed: 0,\u000a	bravery: 0,\u000a	wit: 0,\u000a	suspicion: 0,\u000a	paranoia: 0\u000a},\u000a{\u000a	name: "",\u000a	bio: "",\u000a	alive: true,\u000a	acted: false,\u000a	experience: 0,\u000a	mercy: 0,\u000a	greed: 0,\u000a	bravery: 0,\u000a	wit: 0,\u000a	suspicion: 0,\u000a	paranoia: 0\u000a}\u000a];\u000a\u000avar seed = 0;\u000avar traitor = -1;\u000a\u000afunction nextRand(){\u000a	var rand = Math.sin(seed++) * 10000;\u000a	return rand - Math.floor(rand);\u000a};\u000a\u000afunction getVariable(arg){\u000a	return state.history[0].variables[arg.substring(1)];\u000a};\u000a\u000afunction setVariable(arg, val){\u000a	state.history[0].variables[arg.substring(1)] = val;\u000a};\u000a\u000a//<<seedify $name>>\u000amacros['seedify'] = {\u000a	handler: function(place, macroName, params, parser) {\u000a		var name = getVariable(params[0]);\u000a		seed = 0;\u000a		for (var i = 0; i < name.length; i++){\u000a			seed += name.charCodeAt(i);\u000a		}\u000a		//instantiate party members\u000a		for (var i = 0; i < party.length; i++){\u000a			//instantiate name\u000a			var randNameIndex = nextRand();\u000a			randNameIndex = Math.floor(randNameIndex * names.length);\u000a			var nameObj = names[randNameIndex];\u000a			while (nameObj.used){\u000a				randNameIndex++;\u000a				randNameIndex %= names.length;\u000a				nameObj = names[randNameIndex];\u000a			}\u000a			party[i].name = nameObj.name;\u000a			nameObj.used = true;\u000a			\u000a			//instantiate other stuff\u000a			var randall;\u000a			var bio = "";\u000a			\u000a			//instantiate experience\u000a			randall = Math.floor(nextRand() * 3);\u000a			bio += bios.experience[randall]\u000a			randall = (randall + 1) * 25;\u000a			party[i].experience = randall;\u000a			\u000a			//instantiate greed\u000a			randall = Math.floor(nextRand() * 3);\u000a			bio += bios.greed[randall]\u000a			randall = (randall + 1) * 25;\u000a			party[i].greed = randall;\u000a			\u000a			//instantiate mercy\u000a			randall = Math.floor(nextRand() * 3);\u000a			bio += bios.mercy[randall]\u000a			randall = (randall + 1) * 25;\u000a			party[i].mercy = randall;\u000a			\u000a			//instantiate bravery\u000a			randall = Math.floor(nextRand() * 3);\u000a			bio += bios.bravery[randall]\u000a			randall = (randall + 1) * 25;\u000a			party[i].bravery = randall;\u000a			\u000a			//instantiate wit\u000a			randall = Math.floor(nextRand() * 3);\u000a			bio += bios.wit[randall]\u000a			randall = (randall + 1) * 25;\u000a			party[i].wit = randall;\u000a			\u000a			//instantiate paranoia\u000a			randall = Math.floor(nextRand() * 3);\u000a			bio += bios.paranoia[randall]\u000a			randall = (randall + 1) * 25;\u000a			party[i].paranoia = randall;\u000a			\u000a			party[i].bio = bio;\u000a			\u000a			console.log(JSON.stringify(party[i]));\u000a		}\u000a	}\u000a};	\u000a\u000a//<nextscene $scene>>\u000amacros['nextscene'] = {\u000a	handler: function(place, macroname, params, parser) {\u000a		var randSceneIndex = nextRand();\u000a		randSceneIndex = Math.floor(randSceneIndex * scenes.length);\u000a		var sceneObj = scenes[randSceneIndex];\u000a		var timesLooped = 0;\u000a		while (sceneObj.used && timesLooped < scenes.length){\u000a			timesLooped++;\u000a			randSceneIndex++;\u000a			randSceneIndex %= scenes.length;\u000a			sceneObj = scenes[randSceneIndex];\u000a		}\u000a		if (sceneObj.used && timesLooped >= scenes.length){\u000a			state.history[0].variables[params[0].substring(1)] = "Final Encounter";\u000a		} else {\u000a			sceneObj.used = true;\u000a			state.history[0].variables[params[0].substring(1)] = sceneObj.name;\u000a		}\u000a	}\u000a};\u000a\u000a//<<nextrand $dest [$low] $high>>\u000amacros['nextrand'] = {\u000a	handler: function(place, macroname, params, parser) {\u000a		var randall = nextRand();\u000a		if (params[2]){\u000a			randall *= params[2] - params[1];\u000a			randall += params[1];\u000a		} else {\u000a			randall *= params[1];\u000a		}\u000a		setVariable(params[0], Math.floor(randall));\u000a	}\u000a};\u000a\u000a//<<resetactors>>\u000amacros['resetactors'] = {\u000a	handler: function(place, macroname, params, parser) {\u000a		for (var i = 0; i < party.length; i++) {\u000a			party[i].acted = false;\u000a		}\u000a	}\u000a};\u000a\u000a//<<nextactor $dest $trait $low>>\u000amacros['nextactor'] = {\u000a	handler: function(place, macroname, params, parser) {\u000a		var i = 0;\u000a		var trait = params[1];\u000a		var low = params[2];\u000a		for (i = 0; i < party.length; i++){\u000a			if (party[i].acted) continue;\u000a			var isTraitor = traitor == i;\u000a			var traitCheck = party[i][trait];\u000a			if (low){\u000a				if (isTraitor && traitCheck == 75) {\u000a					break;\u000a				} else if (!isTraitor && traitCheck == 25) {\u000a					break;\u000a				}\u000a			} else {\u000a				if (isTraitor && traitCheck == 25) {\u000a					break;\u000a				} else if (!isTraitor && traitCheck == 75){\u000a					break;\u000a				}\u000a			}\u000a		}\u000a		if (i == traitor) console.log("Up to no good...");\u000a		if (i == party.length){\u000a			console.log("Ayy lmao");\u000a			setVariable(params[0], -1);\u000a		} else {				\u000a			console.log(party[i].name);\u000a			party[i].acted = true;\u000a			setVariable(params[0], i);\u000a		}\u000a	}\u000a};\u000a\u000a//<<nexttraitor [$dest]>>\u000amacros['nexttraitor'] = {\u000a	handler: function(place, macroName, params, parser) {\u000a		var rando = nextRand();\u000a		rando = Math.floor(rando * party.length);\u000a		while (!party[rando].alive){\u000a			rando++;\u000a			rando %= party.length;\u000a		}\u000a		traitor = rando;\u000a		if (params[0]) setVariable(params[0], traitor);\u000a	}\u000a};\u000a\u000a//<<printname $partymember>>\u000amacros['printname'] = {\u000a	handler: function(place, macroName, params, parser) {\u000a		var name;\u000a		var paramscheck = "" + params[0];\u000a		if (paramscheck.charAt(0) == "$"){\u000a			var arg = state.history[0].variables[params[0].substring(1)];\u000a			name = party[arg]["name"];\u000a		} else {\u000a			name = party[params[0]]["name"];\u000a		}\u000a		insertText(place, name);\u000a	}\u000a};\u000a\u000a//<<printbio $index>>\u000amacros['printbio'] = {\u000a	handler: function(place, macroName, params, parser) {\u000a		var bio;\u000a		var paramscheck = "" + params[0];\u000a		if (paramscheck.charAt(0) == "$"){\u000a			var arg = state.history[0].variables[params[0].substring(1)];\u000a			bio = party[arg]["bio"];\u000a		} else {\u000a			bio = party[params[0]]["bio"];\u000a		}\u000a		insertText(place, bio);\u000a	}\u000a};\u000a\u000a//<<getvalue $destination $member $key>>\u000amacros['getvalue'] = {\u000a	handler: function(place, macroname, params, parser) {\u000a		var member;\u000a		var key;\u000a		var paramscheck = "" + params[1];\u000a		if (paramscheck.charAt(0) == "$"){\u000a			member = getVariable(params[1]);\u000a		} else {\u000a			member = params[1];\u000a		}\u000a		if (member == -1){\u000a			setVariable(params[0], -1);\u000a			return;\u000a		}\u000a		paramscheck = "" + params[2];\u000a		if (paramscheck.charAt(0) == "$"){\u000a			key = getVariable(params[2]);\u000a		} else {\u000a			key = params[2];\u000a		}\u000a		setVariable(params[0], party[member][key]);\u000a	}\u000a};\u000a\u000a//<<kill $member>>\u000amacros['kill'] = {\u000a	handler: function(place, macroname, params, parser) {\u000a		var i = getVariable(params[0]);\u000a		party[i].alive = false;\u000a	}\u000a};\u000a\u000a//<<incsuspicion $source $dest>>\u000amacros['incsuspicion'] = {\u000a	handler: function(place, macroname, params, parser) {\u000a		party[params[1]].suspicion += party[params[0]].paranoia;\u000a	}\u000a};\u000a\u000a//someone else's sound code\u000a(function () {\u000a  "use strict";\u000a  version.extensions['soundMacros'] = {\u000a    major: 1,\u000a    minor: 1,\u000a    revision: 2\u000a  };\u000a  var p = macros['playsound'] = {\u000a    soundtracks: {},\u000a    handler: function (a, b, c, d) {\u000a      var loop = function (m) {\u000a          if (m.loop == undefined) {\u000a            m.loopfn = function () {\u000a              this.play();\u000a            };\u000a            m.addEventListener('ended', m.loopfn, 0);\u000a          } else m.loop = true;\u000a          m.play();\u000a          };\u000a      var s = eval(d.fullArgs());\u000a      if (s) {\u000a        s = s.toString();\u000a        var m = this.soundtracks[s.slice(0, s.lastIndexOf("."))];\u000a        if (m) {\u000a          if (b == "playsound") {\u000a            m.play();\u000a          } else if (b == "loopsound") {\u000a            loop(m);\u000a          } else if (b == "pausesound") {\u000a            m.pause();\u000a          } else if (b == "unloopsound") {\u000a            if (m.loop != undefined) {\u000a              m.loop = false;\u000a            } else if (m.loopfn) {\u000a              m.removeEventListener('ended', m.loopfn);\u000a              delete m.loopfn;\u000a            }\u000a          } else if (b == "stopsound") {\u000a            m.pause();\u000a            m.currentTime = 0;\u000a          } else if (b == "fadeoutsound" || b == "fadeinsound") {\u000a            if (m.interval) clearInterval(m.interval);\u000a            if (b == "fadeinsound") {\u000a              if (m.currentTime>0) return;\u000a              m.volume = 0;\u000a              loop(m);\u000a            } else {\u000a              if (!m.currentTime) return;\u000a              m.play();\u000a            }\u000a            var v = m.volume;\u000a            m.interval = setInterval(function () {\u000a              v = Math.min(1, Math.max(0, v + 0.005 * (b == "fadeinsound" ? 1 : -1)));\u000a              m.volume = Math.easeInOut(v);\u000a              if (v == 0 || v == 1) clearInterval(m.interval);\u000a              if (v == 0) {\u000a                m.pause();\u000a                m.currentTime = 0;\u000a                m.volume = 1;\u000a              }\u000a            }, 10);\u000a          }\u000a        }\u000a      }\u000a    }\u000a  }\u000a  macros['fadeinsound'] = p;\u000a  macros['fadeoutsound'] = p;\u000a  macros['unloopsound'] = p;\u000a  macros['loopsound'] = p;\u000a  macros['pausesound'] = p;\u000a  macros['stopsound'] = p;\u000a  macros['stopallsound'] = {\u000a    handler: function () {\u000a      var s = macros.playsound.soundtracks;\u000a      for (var j in s) {\u000a		if (s.hasOwnProperty(j)) {\u000a          s[j].pause();\u000a          if (s[j].currentTime) {\u000a		    s[j].currentTime = 0;\u000a		  }\u000a		}\u000a      }\u000a    }\u000a  }\u000a  var div = document.getElementById("storeArea").firstChild;\u000a  var fe = ["ogg", "mp3", "wav", "webm"];\u000a  while (div) {\u000a    var b = String.fromCharCode(92);\u000a    var q = '"';\u000a    var re = "['" + q + "]([^" + q + "']*?)" + b + ".(ogg|mp3|wav|webm)['" + q + "]";\u000a    k(new RegExp(re, "gi"));\u000a    div = div.nextSibling;\u000a  }\u000a\u000a  function k(c, e) {\u000a    do {\u000a      var d = c.exec(div.innerHTML);\u000a      if (d) {\u000a        var a = new Audio();\u000a        if (a.canPlayType) {\u000a          for (var i = -1; i < fe.length; i += 1) {\u000a            if (i >= 0) d[2] = fe[i];\u000a            if (a.canPlayType("audio/" + d[2])) break;\u000a          }\u000a          if (i < fe.length) {\u000a            a.setAttribute("src", d[1] + "." + d[2]);\u000a            a.interval = null;\u000a            macros.playsound.soundtracks[d[1]] = a;\u000a          } else console.log("Browser can't play '" + d[1] + "'");\u000a        }\u000a      }\u000a    } while (d);\u000a  }\u000a}());
+p72
+sg23
+Vscripts yay
+p73
+sg25
+g26
+((I2015
+I3
+I28
+I19
+I9
+I44
+I5
+I87
+I1
+tp74
+(dp75
+tp76
+Rp77
+sg31
+(lp78
+Vscript
+p79
+asg33
+g26
+((I2015
+I3
+I27
+I22
+I9
+I54
+I4
+I86
+I1
+tp80
+(dp81
+tp82
+Rp83
+sbsa(dp84
+g14
+I00
+sg15
+(lp85
+F201.0
+aF9.0
+asg17
+(itiddlywiki
+Tiddler
+p86
+(dp87
+g21
+V<<loopsound $introsound>>You are the leader of a renowned party of adventurers. Today you venture into the depths of Aesop cave in search of great, untold riches. Though your company has been through countless expeditions together, today you have a sneaking suspicion that one member is going to sabotage the rest of the team. You have known these people for years, both in times of happiness and strife, and in turn have a good understanding of each of their personalities.\u000aAs you go through the cave, pay attention to their actions; you may have to make a decision at the end of the ordeal.<<seedify $name>><<nexttraitor $traitor>>\u000a\u000a[[Your team consists of...|Beggining-1]]
+p88
+sg23
+VBeggining
+p89
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I37
+I1
+I5
+I87
+I1
+tp90
+(dp91
+tp92
+Rp93
+sg31
+(lp94
+sg33
+g26
+((I2015
+I3
+I27
+I22
+I47
+I40
+I4
+I86
+I1
+tp95
+(dp96
+tp97
+Rp98
+sbsa(dp99
+g14
+I00
+sg15
+(lp100
+F380.0
+aF12.0
+asg17
+(itiddlywiki
+Tiddler
+p101
+(dp102
+g21
+V<<printname 0>>.\u000a\u000a<<printbio 0>>\u000a\u000a[[Next|Beggining-2]]\u000a
+p103
+sg23
+VBeggining-1
+p104
+sg25
+g26
+((I2015
+I3
+I28
+I11
+I18
+I52
+I5
+I87
+I1
+tp105
+(dp106
+tp107
+Rp108
+sg31
+(lp109
+sg33
+g26
+((I2015
+I3
+I27
+I23
+I6
+I20
+I4
+I86
+I1
+tp110
+(dp111
+tp112
+Rp113
+sbsa(dp114
+g14
+I00
+sg15
+(lp115
+F211.0
+aF148.0
+asg17
+(itiddlywiki
+Tiddler
+p116
+(dp117
+g21
+V<<resetactors>>Deep into the cave you find yourself surrounded by an army of skeletons. Nothing you haven\u2019t beaten before. It is led, however, by a truly horrendous mass of bone and flesh. On its left hand is a large bone, sharpened into an unholy looking scimitar. On its right - well, it has no right hand. A foul stench hits your team as it approaches, knocking hundreds of skeletons out of its way. This is going to be a tough battle.\u000a\u000a[[Fight!!|Sudden Encounter-1]]
+p118
+sg23
+VSudden Encounter
+p119
+sg25
+g26
+((I2015
+I3
+I28
+I16
+I23
+I36
+I5
+I87
+I1
+tp120
+(dp121
+tp122
+Rp123
+sg31
+(lp124
+sg33
+g26
+((I2015
+I3
+I28
+I1
+I0
+I46
+I5
+I87
+I1
+tp125
+(dp126
+tp127
+Rp128
+sbsa(dp129
+g14
+I00
+sg15
+(lp130
+F301.0
+aF711.0
+asg17
+(itiddlywiki
+Tiddler
+p131
+(dp132
+g21
+V<<nextrand $actor 4>>You wander into a large room. It\u2019s dark, but in the distance you see a few chests strewn about. You tell the team to search the rest of the area while you go for the chests. There\u2019s nothing more than the usual variety of loot - gold, jewels, a cool looking sword - but you catch yourself before opening the last chest. This one looks different from the others. The sinister markings suggests that it\u2019s a trap! It\u2019s a good thing you were careful. Then a wicked plan enters your mind\u2026 \u000a\u000aYou look across the room. <<printname $actor>> seems like a threat to your power. Maybe you could lure him to the chest.\u000a\u000a[[Trick him into opening the chest|Sharing the Loot-1]]\u000a[[Forget it|Sharing the Loot-2]]\u000a\u000a
+p133
+sg23
+VSharing the Loot
+p134
+sg25
+g26
+((I2015
+I3
+I28
+I17
+I38
+I26
+I5
+I87
+I1
+tp135
+(dp136
+tp137
+Rp138
+sg31
+(lp139
+sg33
+g26
+((I2015
+I3
+I28
+I1
+I0
+I47
+I5
+I87
+I1
+tp140
+(dp141
+tp142
+Rp143
+sbsa(dp144
+g14
+I00
+sg15
+(lp145
+F1586.0
+aF464.0
+asg17
+(itiddlywiki
+Tiddler
+p146
+(dp147
+g21
+V<<silently>>\u000a<<nextactor $actor "paranoia" false>>\u000a<<getvalue $actorPara $actor "paranoia">>\u000a<<if $actor is -1>>\u000a<<nextrand $actor 4>>\u000a<<endif>>\u000a<<nextrand $paraCheck 100>>\u000a<<endsilently>>The party is getting tired and hungry. You are down to your last ration and are trying to share it as meagerly as possible, as when you run out your cohorts will surely go mad with hunger. \u000a\u000aThere is a faint barking sound as a large hound charges at you! Before you can draw your weapon, it mauls <<printname $actor>>\u2026 and starts licking him. This furry beast must have gotten lost somehow. The party is relieved, and even laughs when <<printname $actor>> yells, \u201cHelp, help! This thing is going to kill me!\u201d <<if $actorPara gte $paraCheck>>Then he pulls out his knife and butchers the dog. You are horrified and furious. How could he possibly think that a labradoodle was going to kill him?\u000a\u000a[[Confront him|Out of Food-2-2]]\u000a[[Move on|Out of Food-2-3]]<<else>><<printname $actor>> pushes the hound off him. He then runs off into the direction your party just came from.\u000a\u000a"Damn we could've eaten it", remarks <<printname $actor>>. He doesn't seem happy that the dog came for him in the first place.\u000a\u000a[[Next|Out of Food-3-1]]<<endif>>
+p148
+sg23
+VOut of Food-2-1
+p149
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I45
+I43
+I5
+I87
+I1
+tp150
+(dp151
+tp152
+Rp153
+sg31
+(lp154
+sg33
+g26
+((I2015
+I3
+I28
+I1
+I0
+I47
+I5
+I87
+I1
+tp155
+(dp156
+tp157
+Rp158
+sbsa(dp159
+g14
+I00
+sg15
+(lp160
+F644.0
+aF447.0
+asg17
+(itiddlywiki
+Tiddler
+p161
+(dp162
+g21
+V<<nextactor $actor "bravery" high>><<getvalue $actorBrave $actor "bravery">>The adventure has calmed down for now. It\u2019s been awhile since you\u2019ve had to fight any creepy ghoulies. There is a certain air of ominousness hovering above the party. Suddenly, there is a brilliant flash of white light! A ghost appears before you, a translucent figure with facial features that barely resemble its former self. Clearly it has been stuck here for awhile. Even more to your surprise, it begins speaking.\u000a\u000a\u201cHumans, why do you trespass on my domain? I will let you go, but only if I may speak with the one called <<printname $actor>>.\u201d <<if $actorBrave is 75>>You are surprised to hear his name, but <<printname $actor>> keeps his resolve. He unflinchingly steps forward. This is against your greater judgment - it\u2019s a supernatural being and there\u2019s no telling what could happen.<<else>><<printname $actor>> is petrified. He's scared, more scared than the rest of your party it seems.<<endif>>\u000a\u000a[[Let him go|A Heart to Heart Discussion-1-1]]\u000a[[Stop him|A Heart to Heart Discussion-2-1]]
+p163
+sg23
+VA Heart to Heart Discussion
+p164
+sg25
+g26
+((I2015
+I3
+I28
+I17
+I41
+I4
+I5
+I87
+I1
+tp165
+(dp166
+tp167
+Rp168
+sg31
+(lp169
+sg33
+g26
+((I2015
+I3
+I28
+I1
+I0
+I48
+I5
+I87
+I1
+tp170
+(dp171
+tp172
+Rp173
+sbsa(dp174
+g14
+I00
+sg15
+(lp175
+F201.0
+aF417.0
+asg17
+(itiddlywiki
+Tiddler
+p176
+(dp177
+g21
+V<<resetactors>><<nextactor $actor "experience" false>>After a few hours of exploration the team finds itself at a fork in the cave. <<if not($actor is -1)>><<printname $actor>> takes it upon himself to closely examine each entrance. He decides that the group needs to take the left path. You\u2019re a bit doubtful. \u201cI\u2019ve been on the team for how many years now? Six? Seven? How could you possibly not trust me? I say we should go left, and mark my words, I will be correct.\u201d<<else>>No one seems to know where to go. It's up to you to make the decision.<<endif>>\u000a\u000a[[Go left|Running in Circles-1-1]]\u000a[[Go right|Running in Circles-2-1]]
+p178
+sg23
+VRunning in Circles
+p179
+sg25
+g26
+((I2015
+I3
+I28
+I17
+I14
+I41
+I5
+I87
+I1
+tp180
+(dp181
+tp182
+Rp183
+sg31
+(lp184
+sg33
+g26
+((I2015
+I3
+I28
+I1
+I5
+I20
+I5
+I87
+I1
+tp185
+(dp186
+tp187
+Rp188
+sbsa(dp189
+g14
+I00
+sg15
+(lp190
+F40.0
+aF717.0
+asg17
+(itiddlywiki
+Tiddler
+p191
+(dp192
+g21
+V<<silently>>\u000a<<getvalue $mem0 0 "name">>\u000a<<getvalue $alive0 0 "alive">>\u000a<<getvalue $mem1 1 "name">>\u000a<<getvalue $alive1 1 "alive">>\u000a<<getvalue $mem2 2 "name">>\u000a<<getvalue $alive2 2 "alive">>\u000a<<getvalue $mem3 3 "name">>\u000a<<getvalue $alive3 3 "alive">>\u000a<<endsilently>>You\u2019ve gone through every nook and cranny of the cave and are starting to prepare all of the loot for transport. You and your team can barely move, however. It\u2019s clear there\u2019s been many more mishaps than any other adventure you\u2019ve had. Perhaps there\u2019s something going on\u2026 No, there must be something wrong. One of your team members hasn\u2019t been acting like himself lately, and you\u2019ve known each of them for a long time. If you need to take action, now\u2019s the time to do it.\u000a\u000a<<if $alive0>><<print "[[Accuse " + $mem0 + "|Final Encounter-1-1]]">><br><<endif>><<if $alive1>><<print "[[Accuse " + $mem1 + "|Final Encounter-1-2]]">><br><<endif>><<if $alive2>><<print "[[Accuse " + $mem2 + "|Final Encounter-1-3]]">><br><<endif>><<if $alive3>><<print "[[Accuse " + $mem3 + "|Final Encounter-1-4]]">><br><<endif>>[[Accuse no one|Final Encounter-2-1]]
+p193
+sg23
+VFinal Encounter
+p194
+sg25
+g26
+((I2015
+I3
+I28
+I17
+I19
+I59
+I5
+I87
+I1
+tp195
+(dp196
+tp197
+Rp198
+sg31
+(lp199
+sg33
+g26
+((I2015
+I3
+I28
+I1
+I7
+I20
+I5
+I87
+I1
+tp200
+(dp201
+tp202
+Rp203
+sbsa(dp204
+g14
+I00
+sg15
+(lp205
+F553.0
+aF13.0
+asg17
+(itiddlywiki
+Tiddler
+p206
+(dp207
+g21
+V<<printname 1>>.\u000a\u000a<<printbio 1>>\u000a\u000a[[Next|Beggining-3]]
+p208
+sg23
+VBeggining-2
+p209
+sg25
+g26
+((I2015
+I3
+I28
+I11
+I18
+I56
+I5
+I87
+I1
+tp210
+(dp211
+tp212
+Rp213
+sg31
+(lp214
+sg33
+g26
+((I2015
+I3
+I28
+I11
+I13
+I33
+I5
+I87
+I1
+tp215
+(dp216
+tp217
+Rp218
+sbsa(dp219
+g14
+I00
+sg15
+(lp220
+F732.0
+aF16.0
+asg17
+(itiddlywiki
+Tiddler
+p221
+(dp222
+g21
+V<<printname 2>>.\u000a\u000a<<printbio 2>>\u000a\u000a[[Next|Beggining-4]]
+p223
+sg23
+VBeggining-3
+p224
+sg25
+g26
+((I2015
+I3
+I28
+I11
+I18
+I59
+I5
+I87
+I1
+tp225
+(dp226
+tp227
+Rp228
+sg31
+(lp229
+sg33
+g26
+((I2015
+I3
+I28
+I11
+I13
+I50
+I5
+I87
+I1
+tp230
+(dp231
+tp232
+Rp233
+sbsa(dp234
+g14
+I00
+sg15
+(lp235
+F899.0
+aF25.0
+asg17
+(itiddlywiki
+Tiddler
+p236
+(dp237
+g21
+V<<printname 3>>.\u000a\u000a<<printbio 3>>\u000a\u000a[[Next|Beggining-5]]
+p238
+sg23
+VBeggining-4
+p239
+sg25
+g26
+((I2015
+I3
+I28
+I11
+I19
+I6
+I5
+I87
+I1
+tp240
+(dp241
+tp242
+Rp243
+sg31
+(lp244
+sg33
+g26
+((I2015
+I3
+I28
+I11
+I14
+I9
+I5
+I87
+I1
+tp245
+(dp246
+tp247
+Rp248
+sbsa(dp249
+g14
+I00
+sg15
+(lp250
+F1092.0
+aF30.0
+asg17
+(itiddlywiki
+Tiddler
+p251
+(dp252
+g21
+V<<fadeoutsound $introsound>><<loopsound $cavesound>>Now venture forth and seek this untold wealth, stored in the depths of Aesop's Cave!\u000a\u000a<<nextscene $scene>><<print "[[Adventure! Treasure! Glory! Damsels!|" + $scene + "]]">>
+p253
+sg23
+VBeggining-5
+p254
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I37
+I33
+I5
+I87
+I1
+tp255
+(dp256
+tp257
+Rp258
+sg31
+(lp259
+sg33
+g26
+((I2015
+I3
+I28
+I11
+I14
+I35
+I5
+I87
+I1
+tp260
+(dp261
+tp262
+Rp263
+sbsa(dp264
+g14
+I00
+sg15
+(lp265
+F384.0
+aF143.0
+asg17
+(itiddlywiki
+Tiddler
+p266
+(dp267
+g21
+V<<nextactor $actor "experience" true>><<getvalue $actorExp $actor "experience">><<nextrand $expCheck 100>>Your team is slaying skeleton after skeleton. Slowly but surely, you are thinning the ranks of the enemy. <<if not($actorExp is -1) and $expCheck gte $actorExp>>Then you notice something: despite about a half an hour of fighting, you can still see countless skeletons running at your party. By some act of necromancy the sea of bones beneath your feet are coming up to make more skeletons! Yet there is no necromancer in sight. The abomination doesn\u2019t appear to be casting any magic either. A purple glow catches your eye. Wait a minute, <<printname $actor>> is a necromancer! Clearly this spell was too ambitious for him. <<if $actorExp is 25>>He hasn\u2019t trained himself enough.<<else>>He should know better!<<endif>>\u000a\u000a[[Confront him|Sudden Encounter-1-1]]\u000a[[Ignore it|Sudden Encounter-1-2]]\u000a<<else>>It's only a matter of time before you get to the fiend in flesh and bone.\u000a\u000a[[Next|Sudden Encounter-2]]<<endif>>
+p268
+sg23
+VSudden Encounter-1
+p269
+sg25
+g26
+((I2015
+I3
+I28
+I14
+I48
+I17
+I5
+I87
+I1
+tp270
+(dp271
+tp272
+Rp273
+sg31
+(lp274
+sg33
+g26
+((I2015
+I3
+I28
+I11
+I24
+I10
+I5
+I87
+I1
+tp275
+(dp276
+tp277
+Rp278
+sbsa(dp279
+g14
+I00
+sg15
+(lp280
+F553.0
+aF151.0
+asg17
+(itiddlywiki
+Tiddler
+p281
+(dp282
+g21
+VNo, surely it couldn\u2019t be him. There must be some aura in the cave itself causing them to regenerate. You\u2019ll just have to tough it out. It takes much longer than you had originally expected to kill all of them. Eventually, the last skeleton falls apart, and it appears that they are no longer being resurrected, either. Strange.\u000a\u000a[[Next|Sudden Encounter-2]]
+p283
+sg23
+VSudden Encounter-1-2
+p284
+sg25
+g26
+((I2015
+I3
+I28
+I12
+I49
+I0
+I5
+I87
+I1
+tp285
+(dp286
+tp287
+Rp288
+sg31
+(lp289
+sg33
+g26
+((I2015
+I3
+I28
+I12
+I31
+I46
+I5
+I87
+I1
+tp290
+(dp291
+tp292
+Rp293
+sbsa(dp294
+g14
+I00
+sg15
+(lp295
+F395.0
+aF297.0
+asg17
+(itiddlywiki
+Tiddler
+p296
+(dp297
+g21
+VYou carefully make your way to <<printname $actor>>, slashing your way through a few more skeletons. Finally you reach him. \u201c<<printname $actor>>, what are you doing? Why are your minions rushing to fight my men?\u201d He focuses his concentration on finishing his current spell while you struggle to bat away a few more skeletons. Conversation is a bit difficult right now.\u000a\u000a[[Next|Sudden Encounter-1-3]]
+p298
+sg23
+VSudden Encounter-1-1
+p299
+sg25
+g26
+((I2015
+I3
+I28
+I14
+I25
+I30
+I5
+I87
+I1
+tp300
+(dp301
+tp302
+Rp303
+sg31
+(lp304
+sg33
+g26
+((I2015
+I3
+I28
+I12
+I31
+I46
+I5
+I87
+I1
+tp305
+(dp306
+tp307
+Rp308
+sbsa(dp309
+g14
+I00
+sg15
+(lp310
+F562.0
+aF311.0
+asg17
+(itiddlywiki
+Tiddler
+p311
+(dp312
+g21
+V<<getvalue $actorMercy $actor "mercy">><<if $actorMercy is 25>><<printname $actor>> laughs maniacally. \u201cCan\u2019t you see, <<print $name>>? This is a test of our mettle, and I am merely the proctor! We have sliced through plenty of skeletons before. What matters here is efficiency, and I\u2019d recommend you stop wasting your time with me as you\u2019ll simply have to kill the skeletons faster than I\u2019m making them!\u201d You are flabbergasted. \u201c<<printname $actor>>, have you lost your mind?! This is no game. You are gambling with our lives and I command you to stop!\u201d <<printname $actor>> has the face of a bored child. \u201cFine,\u201d he sighs. With a single gesture of his staff half of the skeletons turn on their friends. Your party looks on in a mix of confusion and relief, and then celebrates <<printname $actor>>\u2019s prowess. You decide to keep your conversation a secret.<<else if $actorMercy is 50>><<printname $actor>> breaks his concentration and looks in horror at what he has done. Immediately he ends his spell, and nearly half of the skeletons instantly collapse into a sea of bones, and your party makes quick work of the remaining ones. Your party looks on in a mix of confusion and relief, and then celebrates <<printname $actor>>\u2019s prowess. It looks like he just made a small mistake. There\u2019s nothing to take note of.<<else if $actorMercy is 75>>\u201cThey\u2019re good! They\u2019ll work for us, I know it,\u201d cries <<printname $actor>>. You sigh. If anybody could treat skeletons with compassion, it\u2019s <<printname $actor>>. It appears that he has bit off more than he can chew, however. \u201cLook, <<printname $actor>>,\u201d you say. \u201cI know you don\u2019t want to end their un-lives, but making more of them doesn\u2019t help us. You can\u2019t save everybody. Just resort to your damaging spells and we\u2019ll get out of here alive.\u201d <<printname $actor>> hesitates, but he ultimately calls off the necromancy spell. Nearly half of the skeletons instantly collapse into a sea of bones, and your party makes quick work of the remaining ones. Your party looks on in a mix of confusion and relief, and then celebrates <<printname $actor>>\u2019s prowess.<<endif>>\u000a\u000a[[Next|Sudden Encounter-2]]
+p313
+sg23
+VSudden Encounter-1-3
+p314
+sg25
+g26
+((I2015
+I3
+I28
+I14
+I27
+I23
+I5
+I87
+I1
+tp315
+(dp316
+tp317
+Rp318
+sg31
+(lp319
+sg33
+g26
+((I2015
+I3
+I28
+I12
+I32
+I10
+I5
+I87
+I1
+tp320
+(dp321
+tp322
+Rp323
+sbsa(dp324
+g14
+I00
+sg15
+(lp325
+F728.0
+aF146.0
+asg17
+(itiddlywiki
+Tiddler
+p326
+(dp327
+g21
+V<<nextactor $actor "bravery" true>><<getvalue $actorBravery $actor "bravery">><<nextrand $braveryCheck 100>>After having slain most of the skeletons, the abomination now approaches your party head-on as you prepare for the final confrontation. <<if not($actorMercy is -1) and $braveryCheck gte $actorBravery>>You and the other three members alike are exhausted, and - three members\u2026 where is <<printname $actor>>?! You see his silhouette a few hundred meters behind your formation, quivering in fear. This can\u2019t be happening. <<if $actorBravery is 25>>That coward!<<else if $actorBravery is 50>><<printname $actor>> isn't the bravest soul in the world, but he's no coward!<<else if $actorBravery is 75>><<printname $actor>> wouldn't flinch at a fully grown troll if one were charging at him!<<endif>> Your team has trained itself in countless maneuvers and techniques, and even a single absentee is enough to collapse the team.\u000a\u000a[[Confront him|Sudden Encounter-2-1]]\u000a[[Fight without him|Sudden Encounter-2-2]]<<else>>You and your four party members prepare for battle.\u000a[[Next|Sudden Encounter-3]]<<endif>>
+p328
+sg23
+VSudden Encounter-2
+p329
+sg25
+g26
+((I2015
+I3
+I28
+I14
+I37
+I32
+I5
+I87
+I1
+tp330
+(dp331
+tp332
+Rp333
+sg31
+(lp334
+sg33
+g26
+((I2015
+I3
+I28
+I12
+I47
+I36
+I5
+I87
+I1
+tp335
+(dp336
+tp337
+Rp338
+sbsa(dp339
+g14
+I00
+sg15
+(lp340
+F1077.0
+aF162.0
+asg17
+(itiddlywiki
+Tiddler
+p341
+(dp342
+g21
+V<<nextactor $actor "mercy" false>><<getvalue $actorMercy $actor "mercy">><<nextrand $mercyCheck 100>>An hour later your team has finally vanquished all of the skeletons save for a few stragglers. The abomination of flesh, too, is quite literally on its last leg, having been slowly whittled down.\u000a\u000a<<if not($actorMercy is -1) and $actorMercy gte $mercyCheck>>You channel a withering spell on the abomination and command all but <<printname $actor>> to come to your aid, amplifying its effects. The previously hulking figure is now a mere heap of flesh on its last breath. You shout at <<printname $actor>>, \u201cWell, what are you waiting for? Finish off that creature!\u201d He does not move. You and your group can feel the mana wasting away. There isn\u2019t much time left. You either have to break away from the spell and kill the monster yourself, or hope that <<printname $actor>> will act.\u000a\u000a[[Break Away|Sudden-Encounter-3-3]]\u000a[[Keep the spell going|Sudden-Encounter-3-4]]<<else>>You channel a withering spell on the abomination and command all but <<printname 2>> to come to your aid, amplifying its effects.  <<printname 2>> walks up to the monster and finishes it off.\u000a\u000a[[Next|Sudden Encounter-4]]<<endif>>
+p343
+sg23
+VSudden Encounter-3
+p344
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I19
+I42
+I5
+I87
+I1
+tp345
+(dp346
+tp347
+Rp348
+sg31
+(lp349
+sg33
+g26
+((I2015
+I3
+I28
+I12
+I53
+I21
+I5
+I87
+I1
+tp350
+(dp351
+tp352
+Rp353
+sbsa(dp354
+g14
+I00
+sg15
+(lp355
+F726.0
+aF323.0
+asg17
+(itiddlywiki
+Tiddler
+p356
+(dp357
+g21
+VYou command your team to make a tactical retreat as you rush over to <<printname $actor>>. The abomination pursues, but at a cripple\u2019s pace. You say, \u201c<<printname $actor>>, we can either cower like infants and wait to be devoured by that beast, or we can face our fear right now and get out of this sooner. What will it be?\u201d\u000a\u000a[[Next|Sudden Encounter-2-4]]
+p358
+sg23
+VSudden Encounter-2-1
+p359
+sg25
+g26
+((I2015
+I3
+I28
+I14
+I28
+I1
+I5
+I87
+I1
+tp360
+(dp361
+tp362
+Rp363
+sg31
+(lp364
+sg33
+g26
+((I2015
+I3
+I28
+I12
+I53
+I21
+I5
+I87
+I1
+tp365
+(dp366
+tp367
+Rp368
+sbsa(dp369
+g14
+I00
+sg15
+(lp370
+F891.0
+aF166.0
+asg17
+(itiddlywiki
+Tiddler
+p371
+(dp372
+g21
+VYou attempt to perform your maneuvers without him, but it\u2019s futile. No other member of the team is as agile as he is, and in the end the fiend manages to crush you one by one. <<printname $actor>> eventually does summon the bravery to help, but it\u2019s too late. He is the last one to fall. Your party is dead.
+p373
+sg23
+VSudden Encounter-2-2
+p374
+sg25
+g26
+((I2015
+I3
+I28
+I14
+I28
+I39
+I5
+I87
+I1
+tp375
+(dp376
+tp377
+Rp378
+sg31
+(lp379
+sg33
+g26
+((I2015
+I3
+I28
+I12
+I53
+I21
+I5
+I87
+I1
+tp380
+(dp381
+tp382
+Rp383
+sbsa(dp384
+g14
+I00
+sg15
+(lp385
+F911.0
+aF324.0
+asg17
+(itiddlywiki
+Tiddler
+p386
+(dp387
+g21
+V<<getvalue $actorExp $actor "experience">><<if $actorExp is 25>>It\u2019s harsh, but it works. He gets up. \u201cAlright, let\u2019s do it.\u201d <<printname $actor>> and the rest of the team distract the monster, exploiting the monster\u2019s shambling gait, while you head in for a direct hit. Suddenly the abomination swings at you. The sharp blade barely misses. It looks like <<printname $actor>> has tripped. The monster must have lost interest. While the creature struggles to pull its blade back up, you finish it off in one clean slice. Not exactly according to plan, but it works. You\u2019ll have to push extra training on him after this.\u000a<<else if $actorExp is 50>>It\u2019s harsh, but it works. He gets up. \u201cAlright, let\u2019s do it.\u201d <<printname $actor>> and the rest of the team distract the monster, exploiting the monster\u2019s shambling gait, while you head in for a direct hit. It all goes according to plan. <<printname $actor>> might have lost his composure for a bit, but he\u2019s still been in enough fights to know what he\u2019s doing.<<else if $actorExp is 75>><<printname $actor>> chuckles to himself. \u201cWhat are you talking about? I\u2019ve fought monsters twice this size! I was just checking my watch.\u201d It\u2019s strange in such a dire situation, but you can\u2019t help but laugh with him. He gets up. You and <<printname $actor>> distract the monster, exploiting its shambling gait. You can\u2019t help but notice <<printname $actor>>\u2019s confident expression as he flawlessly encircles the huge creature. The rest of the team goes in for the killing blow. Your party is too exhausted to celebrate.<<endif>>\u000a\u000a[[Next|Sudden Encounter-3]]
+p388
+sg23
+VSudden Encounter-2-4
+p389
+sg25
+g26
+((I2015
+I3
+I28
+I14
+I28
+I29
+I5
+I87
+I1
+tp390
+(dp391
+tp392
+Rp393
+sg31
+(lp394
+sg33
+g26
+((I2015
+I3
+I28
+I12
+I54
+I23
+I5
+I87
+I1
+tp395
+(dp396
+tp397
+Rp398
+sbsa(dp399
+g14
+I00
+sg15
+(lp400
+F1068.0
+aF323.0
+asg17
+(itiddlywiki
+Tiddler
+p401
+(dp402
+g21
+VYou confront him about the event. Not wanting to attract any more attention, you speak quietly yet firmly: \u201c<<printname $actor>>, why did you not listen to me? We have gone through this many times before, and yet at that pivotal moment you decided that I should dance with death.\u201d <<printname $actor>> is silent. You raise your voice a little. \u201cWell!?\u201d\u000a\u000a[[Next|Sudden Encounter-3-2]]
+p403
+sg23
+VSudden Encounter-3-1
+p404
+sg25
+g26
+((I2015
+I3
+I28
+I14
+I31
+I14
+I5
+I87
+I1
+tp405
+(dp406
+tp407
+Rp408
+sg31
+(lp409
+sg33
+g26
+((I2015
+I3
+I28
+I13
+I7
+I3
+I5
+I87
+I1
+tp410
+(dp411
+tp412
+Rp413
+sbsa(dp414
+g14
+I00
+sg15
+(lp415
+F1504.0
+aF155.0
+asg17
+(itiddlywiki
+Tiddler
+p416
+(dp417
+g21
+VYou decide that it makes sense that <<printname $actor>> would not budge. He was probably petrified with fear. You would be too, if not for the strength of your company when channeling that spell. You act normally, and <<printname $actor>> appears relieved that he would not have to bear your wrath. The party moves on.\u000a\u000a[[Next|Sudden Encounter-4]]
+p418
+sg23
+VSudden Encounter-3-3
+p419
+sg25
+g26
+((I2015
+I3
+I28
+I16
+I23
+I19
+I5
+I87
+I1
+tp420
+(dp421
+tp422
+Rp423
+sg31
+(lp424
+sg33
+g26
+((I2015
+I3
+I28
+I13
+I7
+I3
+I5
+I87
+I1
+tp425
+(dp426
+tp427
+Rp428
+sbsa(dp429
+g14
+I00
+sg15
+(lp430
+F1660.0
+aF163.0
+asg17
+(itiddlywiki
+Tiddler
+p431
+(dp432
+g21
+V<<nextactor $actor "greed" true>><<getvalue $actorGreed $actor "greed">><<nextrand $greedCheck>>The party lets out an exhausted \u201churrah\u201d as the monster falls face-first onto the cavern floor. <<if not($actorMercy is -1) and $actorGreed gte $greedCheck>><<printname $actor>> is the first one to see the chest behind it. Before you can even catch your breath, <<printname $actor>> is running to grab the loot. The rest of the group follows a few minutes later. Looking in the chest you see only a few gold coins. In fact, a single coin has been left for each of you. You realize what has happened: <<printname $actor>> must have taken the majority of it for himself. Your teammates are restless. \u000a\u000a[[Confront him|Sudden Encounter-4-1]]\u000a[[Let him have it|Sudden Encounter-4-3]]<<else>>Your teammates then discover a chest behind where the monster had fallen. After much debate, the loot has been split to each of the party member's satisfaction.\u000a\u000a<<nextscene $scene>><<print "[[Next|" + $scene + "]]">><<endif>>
+p433
+sg23
+VSudden Encounter-4
+p434
+sg25
+g26
+((I2015
+I3
+I28
+I14
+I32
+I56
+I5
+I87
+I1
+tp435
+(dp436
+tp437
+Rp438
+sg31
+(lp439
+sg33
+g26
+((I2015
+I3
+I28
+I13
+I7
+I3
+I5
+I87
+I1
+tp440
+(dp441
+tp442
+Rp443
+sbsa(dp444
+g14
+I00
+sg15
+(lp445
+F1506.0
+aF325.0
+asg17
+(itiddlywiki
+Tiddler
+p446
+(dp447
+g21
+V<<getvalue $actorWit $actor "wit">><<if $actorWit is 25>>You are about to pin him down when you hear a faint, cracked voice. \u201cPlease\u2026 I need it for my - for my dog. Yeah! I need this gold for my dog!\u201d Your party exchanges looks of bewilderment. You share the same feeling.\u000a \u000a\u201cWhat did you say?\u201d\u000a<<printname $actor>> replies, \u201cLook, my dog was feeling a bit sick. I thought a bit of gold would cheer him up!\u201d\u000aYou hear someone whispering in your group: \u201cI didn\u2019t even know he had a dog\u2026\u201d\u000a\u000aYou silently agree. He\u2019s obviously lying. You demand, \u201cLook, we forgive you, no hard feelings. In fact, I\u2019ll even let you hold on to all that gold -\u201d <<printname $actor>>\u2019s face beams with excitement. \u201cBUT we\u2019ll split the other loot amongst ourselves until we have as much as you. Deal?\u201d <<printname $actor>> is too busy staring at his bounty to listen to you. His loss.<<else if $actorWit is 50>>You are about to pin him down when he calmly says, \u201cI don\u2019t know what got hold of me. Here, take the loot.\u201d That\u2019s a bit weird - you were expecting him to weasel his way out somehow. It looks like he didn\u2019t trust his own cleverness.<<else if $actorWit is 75>>You are about to pin him down when suddenly he yells, \u201cShut up, shut up! Can\u2019t you see? This necklace is cursed! You can tell because of the pixels.\u201d\u000a\u000a\u201cPixels?\u201d, you ask.\u000a\u000a\u201cYes! If you would just look closely, you would see that this necklace is made up of millions of tiny squares - pixels, if you will - unlike any mineral I\u2019ve ever seen. It\u2019s very clearly manufactured and very clearly cursed. You know what? I\u2019m going to keep it with me for research, and I suggest you don\u2019t interrupt me anymore.\u201d\u000a\u000aYou aren\u2019t exactly an expert in this sort of unholy witchcraft, and now is not the time to learn it. You allow <<printname $actor>> to keep the necklace and you take your meager coins.<<endif>>\u000a\u000a[[Next|Sudden Encounter-4]]
+p448
+sg23
+VSudden Encounter-3-2
+p449
+sg25
+g26
+((I2015
+I3
+I28
+I14
+I33
+I16
+I5
+I87
+I1
+tp450
+(dp451
+tp452
+Rp453
+sg31
+(lp454
+sg33
+g26
+((I2015
+I3
+I28
+I13
+I15
+I48
+I5
+I87
+I1
+tp455
+(dp456
+tp457
+Rp458
+sbsa(dp459
+g14
+I00
+sg15
+(lp460
+F1839.0
+aF162.0
+asg17
+(itiddlywiki
+Tiddler
+p461
+(dp462
+g21
+VYou decide not to confront him about his stolen loot, despite how obvious it is. <<if $actorGreed is 25>>You find it strange since <<printname $actor>> is usually not the greedy type. <<endif>>The other members of your group take offense to this. \u201cYou\u2019re not going to say anything?! That\u2019s my money! If you won\u2019t, I will!\u201d says one as he starts walking up to <<printname $actor>>. \u201cStop. We need to keep our sanity for this mission, and <<printname $actor>>\u2019s is very clearly eroding. There\u2019s nothing to gain from provoking him. We\u2019ll be more careful with our next chest, but for now it\u2019s best to ignore him.\u201d Though furious before, your group nods in agreement. Your reasoning has prevented unnecessary conflict. The party moves on.\u000a\u000a<<nextscene $scene>><<print "[[Next|" + $scene + "]]">>\u000a
+p463
+sg23
+VSudden Encounter-4-3
+p464
+sg25
+g26
+((I2015
+I3
+I28
+I14
+I40
+I34
+I5
+I87
+I1
+tp465
+(dp466
+tp467
+Rp468
+sg31
+(lp469
+sg33
+g26
+((I2015
+I3
+I28
+I13
+I25
+I21
+I5
+I87
+I1
+tp470
+(dp471
+tp472
+Rp473
+sbsa(dp474
+g14
+I00
+sg15
+(lp475
+F1669.0
+aF316.0
+asg17
+(itiddlywiki
+Tiddler
+p476
+(dp477
+g21
+VYou walk over to <<printname $actor>>, who is huddled in a corner with a handful of jewels clearly in his lap. \u201cHand it over. You know the deal we have, and it is certainly not this.\u201d No response. \u201c<<printname $actor>>, split the wealth or I will do it personally!\u201d He refuses to make eye contact, much less speak. It\u2019s as if he can\u2019t even afford to give his attention to you. Greedy bastard.\u000a\u000a[[Next|Sudden Encounter-4-2]]
+p478
+sg23
+VSudden Encounter-4-1
+p479
+sg25
+g26
+((I2015
+I3
+I28
+I14
+I33
+I37
+I5
+I87
+I1
+tp480
+(dp481
+tp482
+Rp483
+sg31
+(lp484
+sg33
+g26
+((I2015
+I3
+I28
+I13
+I25
+I21
+I5
+I87
+I1
+tp485
+(dp486
+tp487
+Rp488
+sbsa(dp489
+g14
+I00
+sg15
+(lp490
+F1839.0
+aF310.0
+asg17
+(itiddlywiki
+Tiddler
+p491
+(dp492
+g21
+V<<getvalue $actorWit $actor "wit">><<if $actorWit is 25>>You are about to pin him down when you hear a faint, cracked voice. \u201cPlease\u2026 I need it for my - for my dog. Yeah! I need this gold for my dog!\u201d Your party exchanges looks of bewilderment. You share the same feeling. \u000a\u000a\u201cWhat did you say?\u201d\u000aX replies, \u201cLook, my dog was feeling a bit sick. I thought a bit of gold would cheer him up!\u201d\u000aYou hear someone whispering in your group: \u201cI didn\u2019t even know he had a dog\u2026\u201d\u000a\u000aYou silently agree. He\u2019s obviously lying. You demand, \u201cLook, we forgive you, no hard feelings. In fact, I\u2019ll even let you hold on to all that gold -\u201d X\u2019s face beams with excitement. \u201cBUT we\u2019ll split the other loot amongst ourselves until we have as much as you. Deal?\u201d X is too busy staring at his bounty to listen to you. His loss.<<else if $actorWit is 50>>You are about to pin him down when he calmly says, \u201cI don\u2019t know what got hold of me. Here, take the loot.\u201d That\u2019s a bit weird - you were expecting him to weasel his way out somehow. It looks like he didn\u2019t trust his own cleverness.<<else if $actorWit is 75>>You are about to pin him down when suddenly he yells, \u201cShut up, shut up! Can\u2019t you see? This necklace is cursed! You can tell because of the pixels.\u201d\u000a\u000a\u201cPixels?\u201d, you ask.\u000a\u000a\u201cYes! If you would just look closely, you would see that this necklace is made up of millions of tiny squares - pixels, if you will - unlike any mineral I\u2019ve ever seen. It\u2019s very clearly manufactured and very clearly cursed. You know what? I\u2019m going to keep it with me for research, and I suggest you don\u2019t interrupt me anymore.\u201d\u000a\u000aYou aren\u2019t exactly an expert in this sort of unholy witchcraft, and now is not the time to learn it. You allow X to keep the necklace and you take your meager coins.<<endif>>\u000a\u000a<<nextscene $scene>><<print "[[Next|" + $scene + "]]">>
+p493
+sg23
+VSudden Encounter-4-2
+p494
+sg25
+g26
+((I2015
+I3
+I28
+I14
+I42
+I12
+I5
+I87
+I1
+tp495
+(dp496
+tp497
+Rp498
+sg31
+(lp499
+sg33
+g26
+((I2015
+I3
+I28
+I13
+I28
+I56
+I5
+I87
+I1
+tp500
+(dp501
+tp502
+Rp503
+sbsa(dp504
+g14
+I00
+sg15
+(lp505
+F485.0
+aF717.0
+asg17
+(itiddlywiki
+Tiddler
+p506
+(dp507
+g21
+V<<getvalue $actorPar $actor "paranoia">><<if $actorPar is 75>>You go up to <<printname $actor>>. \u201cHey, I found a great bow that I think you\u2019d be able to use. Come look at it!\u201d you say. He gets excited. It\u2019s certainly an upgrade over the toy bow he\u2019s been using. The two of you come back to the chest.\u000a\u201cThat thing?\u201d says <<printname $actor>>, pointing to the chest.\u000a\u201cYep.\u201d\u000a\u201cAre you insane? Do you know how these things were made? You have no idea what could be in there! It could be a stick of dynamite, a giant octopus - it could even be your mother-in-law! No, I\u2019m going to turn a blind eye to that chest and live another day, thank you very much.\u201d\u000a\u000a<<printname $actor>> runs back to join with the rest of the party. You are left wondering how one could possibly fit a giant octopus in a chest that small, much less your mother-in-law. His extreme paranoia has saved himself from your plan. You follow <<printname $actor>> hoping that he won\u2019t rattle on about what just went down.<<else>>You head off looking for <<printname $actor>>. \u201cHey, I found a great bow that I think you\u2019d be able to use. Come look at it!\u201d you say. He gets excited. It\u2019s certainly an upgrade over the toy bow he\u2019s been using. The two of you come back to the chest. \u000a\u000a\u201cIt\u2019s in this chest?\u201d says <<printname $actor>>. You nod.\u000a\u201cWell why didn\u2019t you just open it?\u201d\u000a\u201cUh\u2026 because you have to be a level 50 archer to open it! That or pay $2.99.\u201d\u000a<<printname $actor>> is confused. \u201cWhat in the gods\u2019 name is a \u2018$\u2019? I\u2019m not even level 50!\u201d\u000a\u201cShut up and open the chest.\u201d\u000a\u000aHis feelings are hurt by your sudden outburst. You\u2019re a jerk. That won\u2019t matter, however, because as soon as <<printname $actor>> opens the chest a giant octopus jumps out! He tries to run but is caught in its noodly tentacles. After a bit of struggle, he gets pulled into the chest and it closes shut. <<printname $actor>> is dead! But it all went as planned. You needed to get rid of him, he was acting way too suspiciously\u2026 right?<<endif>>\u000a\u000a<<kill $actor>><<nextscene $scene>><<print "[[Next|" + $scene + "]]">>
+p508
+sg23
+VSharing the Loot-1
+p509
+sg25
+g26
+((I2015
+I3
+I28
+I16
+I51
+I45
+I5
+I87
+I1
+tp510
+(dp511
+tp512
+Rp513
+sg31
+(lp514
+sg33
+g26
+((I2015
+I3
+I28
+I15
+I31
+I4
+I5
+I87
+I1
+tp515
+(dp516
+tp517
+Rp518
+sbsa(dp519
+g14
+I00
+sg15
+(lp520
+F670.0
+aF707.0
+asg17
+(itiddlywiki
+Tiddler
+p521
+(dp522
+g21
+VYou snap out of it. The cave must be getting to you. You ignore the trapped chest and rejoin your party with the loot.\u000a\u000a<<nextscene $scene>><<print "[[Next|" + $scene + "]]">>
+p523
+sg23
+VSharing the Loot-2
+p524
+sg25
+g26
+((I2015
+I3
+I28
+I15
+I35
+I17
+I5
+I87
+I1
+tp525
+(dp526
+tp527
+Rp528
+sg31
+(lp529
+sg33
+g26
+((I2015
+I3
+I28
+I15
+I31
+I4
+I5
+I87
+I1
+tp530
+(dp531
+tp532
+Rp533
+sbsa(dp534
+g14
+I00
+sg15
+(lp535
+F416.0
+aF420.0
+asg17
+(itiddlywiki
+Tiddler
+p536
+(dp537
+g21
+VYou ignore his speech and command the team to take the right path. He\u2019s been wrong before, and you certainly trust your own judgment over his.\u000a\u000a[[Next|A Heart to Heart Discussion]]
+p538
+sg23
+VRunning in Circles-2-1
+p539
+sg25
+g26
+((I2015
+I3
+I28
+I17
+I40
+I57
+I5
+I87
+I1
+tp540
+(dp541
+tp542
+Rp543
+sg31
+(lp544
+sg33
+g26
+((I2015
+I3
+I28
+I15
+I40
+I49
+I5
+I87
+I1
+tp545
+(dp546
+tp547
+Rp548
+sbsa(dp549
+g14
+I00
+sg15
+(lp550
+F202.0
+aF560.0
+asg17
+(itiddlywiki
+Tiddler
+p551
+(dp552
+g21
+V<<if $actor is -1>><<nextrand $actor 4>><<getvalue $actorAlive $actor "alive">>After about half an hour of roaming, your party ends up at the same intersection.<<if $actorAlive>>"Are you kidding me? You led us to the same spot!", <<printname $actor>> says.\u000a"I didn't hear you make any suggestions when we got here.", you say snarkily back to him.\u000a<<printname $actor>> begins to say something, but backs down. Perhaps next time he'll think before he says something.\u000a<<else>>After some complaints from your party, you decide to move on and go the other way, hoping to finally get somewhere<<endif>>\u000a\u000a[[Next|A Heart to Heart Discussion]]<<else>>He does make a good point - you\u2019ve been with him for a while now. It\u2019s best to trust him. If he\u2019s not right, at least you haven\u2019t burned any bridges between the two of you. You place trust in his experience and allow <<printname $actor>> to lead you deeper into the cave.\u000a\u000a[[Continue|Running in Circles-1-2]]<<endif>>\u000a
+p553
+sg23
+VRunning in Circles-1-1
+p554
+sg25
+g26
+((I2015
+I3
+I28
+I17
+I40
+I23
+I5
+I87
+I1
+tp555
+(dp556
+tp557
+Rp558
+sg31
+(lp559
+sg33
+g26
+((I2015
+I3
+I28
+I15
+I40
+I49
+I5
+I87
+I1
+tp560
+(dp561
+tp562
+Rp563
+sbsa(dp564
+g14
+I00
+sg15
+(lp565
+F437.0
+aF562.0
+asg17
+(itiddlywiki
+Tiddler
+p566
+(dp567
+g21
+V<<getvalue $actorWit $actor "wit">><<if $actorWit is 25>>Some time later, however, the team, led by <<printname $actor>> for the time being, ends up at exactly the same fork in the road as before. Upon closer inspection, there is an eroded sign which reads, \u201cRIGHT - TREASURE ROOM. LEFT - DONUT ROOM.\u201d Much to <<printname $actor>>\u2019s dismay, the donut room did not actually contain donuts. Rather, it was large cavern in the shape of a donut. You make a mental note not to trust <<printname $actor>>\u2019s intelligence from here on.<<else if $actorWit is 50>>A few minutes later the narrow path widens into a large room, populated with a few skeletons here and there. There are enemies, you note, so we must be going the right way. You ask <<printname $actor>>, \u201cHow did you know which way to go?\u201d He shrugs and replies, \u201cPure luck. But you would have trusted me anyway, wouldn\u2019t you, <<print $name>>?\u201d It looks like his intelligence played no role in this decision.<<else>>A few minutes later the narrow path widens into a large room stocked to the brim with chests and gold. <<printname $actor>> must have known this all along! You ask <<printname $actor>>, \u201cHow did you know which way to go?\u201d He smiles and replies, \u201cDid you see the markings on the path? They were in an ancient language. The carvings on the left path said \u2018phat loot.\u2019\u201d You had no idea he\u2019d studied linguistics. He\u2019s even smarter than you thought he was.<<endif>>\u000a\u000a[[Next|Sharing the Loot]]
+p568
+sg23
+VRunning in Circles-1-2
+p569
+sg25
+g26
+((I2015
+I3
+I28
+I17
+I38
+I13
+I5
+I87
+I1
+tp570
+(dp571
+tp572
+Rp573
+sg31
+(lp574
+sg33
+g26
+((I2015
+I3
+I28
+I15
+I41
+I58
+I5
+I87
+I1
+tp575
+(dp576
+tp577
+Rp578
+sbsa(dp579
+g14
+I00
+sg15
+(lp580
+F846.0
+aF456.0
+asg17
+(itiddlywiki
+Tiddler
+p581
+(dp582
+g21
+VYou grab him by the shoulder. \u201cDon\u2019t be a fool. You can\u2019t trust such an insidious being,\u201d you say. I\u2019d rather have us die fighting it than allow you to surrender to its fate. X is touched. \u201cYou\u2019re right,\u201d he says. The party braces for the specter\u2019s wrath, when X finds an overhead projector hidden on the ceiling of the cave. He shoots it with his bow and the ghost vanishes. Well, that was easy.\u000a\u000a<<nextscene $scene>><<print "[[Next|" + $scene + "]]">>
+p583
+sg23
+VA Heart to Heart Discussion-2-1
+p584
+sg25
+g26
+((I2015
+I3
+I28
+I17
+I39
+I26
+I5
+I87
+I1
+tp585
+(dp586
+tp587
+Rp588
+sg31
+(lp589
+sg33
+g26
+((I2015
+I3
+I28
+I15
+I47
+I39
+I5
+I87
+I1
+tp590
+(dp591
+tp592
+Rp593
+sbsa(dp594
+g14
+I00
+sg15
+(lp595
+F664.0
+aF579.0
+asg17
+(itiddlywiki
+Tiddler
+p596
+(dp597
+g21
+VYou say nothing. X now stares at the spectre at what should be its eyes. It presents him with two options. \u201cI was once a man of great wealth, yet foolish enough to explore this perilous cave,\u201d it says. \u201cNow much of it is spread among these wretched chests and hoarded by the unliving. You, my father - \u201c\u000a\u000a\u201cI\u2019m your father?\u201d X scoffs. \u201cWell that makes no sense at all!\u201d\u000a\u201cOh. Erm, let me try that again.\u201d\u000aThere is an awkward silence. The spectre speaks again after recollecting its thoughts.\u000a\u000a\u201cYou, my son, are the one destined to bear my wealth. But now I have obtained a few powers after being stuck on this earth for so long. If you desire, you may bestow it to any person alive today.\u201d\u000a\u000a[[Next|A Heart to Heart Discussion-1-2]]
+p598
+sg23
+VA Heart to Heart Discussion-1-1
+p599
+sg25
+g26
+((I2015
+I3
+I28
+I15
+I48
+I27
+I5
+I87
+I1
+tp600
+(dp601
+tp602
+Rp603
+sg31
+(lp604
+sg33
+g26
+((I2015
+I3
+I28
+I15
+I47
+I39
+I5
+I87
+I1
+tp605
+(dp606
+tp607
+Rp608
+sbsa(dp609
+g14
+I00
+sg15
+(lp610
+F846.0
+aF600.0
+asg17
+(itiddlywiki
+Tiddler
+p611
+(dp612
+g21
+V<<getvalue $actorGreed $actor "greed">><<if $actorGreed is 25>>\u201cEveryone,\u201d says X.\u000a\u201cWhat?\u201d asks the spectre.\u000a\u201cI said everyone. Everyone gets the gold. I don\u2019t care if it\u2019s a single gold piece or millions - I shall bestow my wealth upon every capable being.\u201d\u000aYou can almost see a smile form on the ghost. \u201cYou really are my son. Wish granted.\u201d\u000a\u000aInstantly you feel your knapsack a single coin heavier. X amazes you with his benevolence. It\u2019s too bad he doesn\u2019t know about inflation.<<else if $actorGreed is 50>>\u201cMy party. I will split the wealth with my party, as has always been agreed on. Right, Y?\u201d\u000a\u201cHey, that money is rightfully yours,\u201d you say.\u000a\u201cI know that. But I wouldn\u2019t have gotten to see him if not for you guys!\u201d says X.\u000aYou can\u2019t argue with that. It is free money after all. You help split the gold and then move on.<<else>>\u201cI want all of it! It\u2019s all mine!\u201d yells X.\u000aYou can almost see anger in the spectre\u2019s vague facial features. \u201cShame on you,\u201d it says, as it vanishes in a puff of smoke.\u000aFor a second, there is nothing but darkness. Then you hear a large thud as X falls to the floor. It looks like a modestly sized sack of coins came out of nowhere and hit his head. Guess his wish was granted after all.<<endif>>\u000a\u000a<<nextscene $scene>><<print "[[Next|" + $scene + "]]">>
+p613
+sg23
+VA Heart to Heart Discussion-1-2
+p614
+sg25
+g26
+((I2015
+I3
+I28
+I17
+I9
+I49
+I5
+I87
+I1
+tp615
+(dp616
+tp617
+Rp618
+sg31
+(lp619
+sg33
+g26
+((I2015
+I3
+I28
+I15
+I48
+I29
+I5
+I87
+I1
+tp620
+(dp621
+tp622
+Rp623
+sbsa(dp624
+g14
+I00
+sg15
+(lp625
+F1772.0
+aF677.0
+asg17
+(itiddlywiki
+Tiddler
+p626
+(dp627
+g21
+VYou calm down. Though a bit of company would have been nice, the dangers of the dungeon are clear. He acted fully within his sensibilities. On the bright side, you now have a bit of meat to sustain you and the rest of your group for the remainder of the expedition.\u000a\u000a[[Next|Out of Food-3-1]]
+p628
+sg23
+VOut of Food-2-3
+p629
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I46
+I9
+I5
+I87
+I1
+tp630
+(dp631
+tp632
+Rp633
+sg31
+(lp634
+sg33
+g26
+((I2015
+I3
+I28
+I16
+I11
+I49
+I5
+I87
+I1
+tp635
+(dp636
+tp637
+Rp638
+sbsa(dp639
+g14
+I00
+sg15
+(lp640
+F1572.0
+aF634.0
+asg17
+(itiddlywiki
+Tiddler
+p641
+(dp642
+g21
+V<<getvalue $actorBrave $actor "bravery">><<if $actorBrave is 75>>\u201cHah, did you see me slay that beast?\u201d boasts <<printname $actor>>. \u201cSharp fangs and acidic drool is nothing when it stands in my way.\u201d\u000aAcidic\u2026 drool? Maybe the dog really was dangerous. You have to admit, other than his flailing arms and flopping about like a child, he handled the encounter with composure. You salvage the body for meat, enough to hold yourself for the rest of the expedition. The party moves on.<<else>>You can hear <<printname $actor>> sobbing quietly. \u201cI didn\u2019t mean to\u2026 I got scared. I really thought I was going to die!\u201d You can understand his terror. It\u2019s not very often that you get assaulted with kisses and tail-wagging. Still, <<printname $actor>> totally needs to grow a pair. On the bright side, you now have a bit of meat to sustain you and the rest of your group for the rest of the expedition. <<endif>>\u000a\u000a[[Next|Out of Food-3-1]]
+p643
+sg23
+VOut of Food-2-2
+p644
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I45
+I57
+I5
+I87
+I1
+tp645
+(dp646
+tp647
+Rp648
+sg31
+(lp649
+sg33
+g26
+((I2015
+I3
+I28
+I16
+I11
+I49
+I5
+I87
+I1
+tp650
+(dp651
+tp652
+Rp653
+sbsa(dp654
+g14
+I00
+sg15
+(lp655
+F141.0
+aF881.0
+asg17
+(itiddlywiki
+Tiddler
+p656
+(dp657
+g21
+V<<if $traitor is 0>>Of course it\u2019s <<print $mem0>>. He\u2019s been acting completely unlike himself, and it\u2019s time to point him out on it before does anything worse. You see him stuffing some gold coins into his sack a few rooms down and decide to confront him. \u201c<<print $mem0>>, I know who you are, and that disguise of yours might fool them but it won\u2019t fool me.\u201d The rest of your group, hearing the exchange, gathers around the both of you. <<print $mem0>> just stares at you with a confused look. You grab him by his shoulders. \u201cDon\u2019t play dumb with me! Who are you, really!?\u201d\u000a\u000a[[Next|Final Encounter-1-6]]<<else>>Of course it\u2019s <<print $mem0>>. He\u2019s been acting completely unlike himself, and it\u2019s time to point him out on it before does anything worse. You see him stuffing some gold coins into his sack a few rooms down and decide to confront him. \u201c<<print $mem0>>, I know who you are, and that disguise of yours might fool them but it won\u2019t fool me.\u201d The rest of your group, hearing the exchange, gathers around the both of you. <<print $mem0>> just stares at you with a confused look. You grab him by his shoulders. \u201cDon\u2019t play dumb with me! Who are you, really!?\u201d\u000a\u000aYou start to shake him violently until the other party members restrain you. \u201cI am <<print $mem0>>! What are you talking about?\u201d Everyone is looking at you with bewilderment. You realize you\u2019ve might have been wrong.\u000a[[Next|Final Encounter-1-7]]<<endif>>
+p658
+sg23
+VFinal Encounter-1-1
+p659
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I31
+I53
+I5
+I87
+I1
+tp660
+(dp661
+tp662
+Rp663
+sg31
+(lp664
+sg33
+g26
+((I2015
+I3
+I28
+I16
+I19
+I20
+I5
+I87
+I1
+tp665
+(dp666
+tp667
+Rp668
+sbsa(dp669
+g14
+I00
+sg15
+(lp670
+F481.0
+aF894.0
+asg17
+(itiddlywiki
+Tiddler
+p671
+(dp672
+g21
+V<<if $traitor is 2>>Of course it\u2019s <<print $mem2>>. He\u2019s been acting completely unlike himself, and it\u2019s time to point him out on it before does anything worse. You see him stuffing some gold coins into his sack a few rooms down and decide to confront him. \u201c<<print $mem2>>, I know who you are, and that disguise of yours might fool them but it won\u2019t fool me.\u201d The rest of your group, hearing the exchange, gathers around the both of you. <<print $mem2>> just stares at you with a confused look. You grab him by his shoulders. \u201cDon\u2019t play dumb with me! Who are you, really!?\u201d\u000a\u000a[[Next|Final Encounter-1-6]]<<else>>Of course it\u2019s <<print $mem2>>. He\u2019s been acting completely unlike himself, and it\u2019s time to point him out on it before does anything worse. You see him stuffing some gold coins into his sack a few rooms down and decide to confront him. \u201c<<print $mem2>>, I know who you are, and that disguise of yours might fool them but it won\u2019t fool me.\u201d The rest of your group, hearing the exchange, gathers around the both of you. <<print $mem2>> just stares at you with a confused look. You grab him by his shoulders. \u201cDon\u2019t play dumb with me! Who are you, really!?\u201d\u000a\u000aYou start to shake him violently until the other party members restrain you. \u201cI am <<print $mem2>>! What are you talking about?\u201d Everyone is looking at you with bewilderment. You realize you\u2019ve might have been wrong.\u000a\u000a[[Next|Final Encounter-1-7]]<<endif>>
+p673
+sg23
+VFinal Encounter-1-3
+p674
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I31
+I15
+I5
+I87
+I1
+tp675
+(dp676
+tp677
+Rp678
+sg31
+(lp679
+sg33
+g26
+((I2015
+I3
+I28
+I16
+I19
+I20
+I5
+I87
+I1
+tp680
+(dp681
+tp682
+Rp683
+sbsa(dp684
+g14
+I00
+sg15
+(lp685
+F315.0
+aF884.0
+asg17
+(itiddlywiki
+Tiddler
+p686
+(dp687
+g21
+V<<if $traitor is 1>>Of course it\u2019s <<print $mem1>>. He\u2019s been acting completely unlike himself, and it\u2019s time to point him out on it before does anything worse. You see him stuffing some gold coins into his sack a few rooms down and decide to confront him. \u201c<<print $mem1>>, I know who you are, and that disguise of yours might fool them but it won\u2019t fool me.\u201d The rest of your group, hearing the exchange, gathers around the both of you. <<print $mem1>> just stares at you with a confused look. You grab him by his shoulders. \u201cDon\u2019t play dumb with me! Who are you, really!?\u201d\u000a\u000a[[Next|Final Encounter-1-6]]<<else>>Of course it\u2019s <<print $mem1>>. He\u2019s been acting completely unlike himself, and it\u2019s time to point him out on it before does anything worse. You see him stuffing some gold coins into his sack a few rooms down and decide to confront him. \u201c<<print $mem1>>, I know who you are, and that disguise of yours might fool them but it won\u2019t fool me.\u201d The rest of your group, hearing the exchange, gathers around the both of you. <<print $mem1>> just stares at you with a confused look. You grab him by his shoulders. \u201cDon\u2019t play dumb with me! Who are you, really!?\u201d\u000a\u000aYou start to shake him violently until the other party members restrain you. \u201cI am <<print $mem1>>! What are you talking about?\u201d Everyone is looking at you with bewilderment. You realize you\u2019ve might have been wrong.[[Next|Final Encounter-1-7]]<<endif>>
+p688
+sg23
+VFinal Encounter-1-2
+p689
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I31
+I37
+I5
+I87
+I1
+tp690
+(dp691
+tp692
+Rp693
+sg31
+(lp694
+sg33
+g26
+((I2015
+I3
+I28
+I16
+I19
+I20
+I5
+I87
+I1
+tp695
+(dp696
+tp697
+Rp698
+sbsa(dp699
+g14
+I00
+sg15
+(lp700
+F33.0
+aF1102.0
+asg17
+(itiddlywiki
+Tiddler
+p701
+(dp702
+g21
+V<<getvalue $aliveT $traitor "alive">><<if $aliveT>>Suddenly you hear a cold, dark voice. It\u2019s coming from <<printname $traitor>>! \u201cYes, <<print $name>>, you were correct to be suspicious\u2026 but it looks like you\u2019ve gone after one of your own. I\u2019ll admit it, you got close. But it was your own hubris that obscured your judgment. You and your cohorts will pay dearly for this.\u201d You feel an intense rumbling as the cave closes in on itself, leaving the four of you in complete darkness. This will be your last adventure.<<else>>Your group is able to claim the treasure with ease. After all your hardships you and your group are finally able to claim your reward. Though everyone is celebrating, there is also a moment of silence for <<printname $traitor>>. The journey could not have been made without loss. The rest of your team lives to fight another day.<<endif>>
+p703
+sg23
+VFinal Encounter-2-1
+p704
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I14
+I38
+I5
+I87
+I1
+tp705
+(dp706
+tp707
+Rp708
+sg31
+(lp709
+sg33
+g26
+((I2015
+I3
+I28
+I16
+I19
+I20
+I5
+I87
+I1
+tp710
+(dp711
+tp712
+Rp713
+sbsa(dp714
+g14
+I00
+sg15
+(lp715
+F668.0
+aF883.0
+asg17
+(itiddlywiki
+Tiddler
+p716
+(dp717
+g21
+V<<if $traitor is 3>>Of course it\u2019s <<print $mem3>>. He\u2019s been acting completely unlike himself, and it\u2019s time to point him out on it before does anything worse. You see him stuffing some gold coins into his sack a few rooms down and decide to confront him. \u201c<<print $mem3>>, I know who you are, and that disguise of yours might fool them but it won\u2019t fool me.\u201d The rest of your group, hearing the exchange, gathers around the both of you. <<print $mem3>> just stares at you with a confused look. You grab him by his shoulders. \u201cDon\u2019t play dumb with me! Who are you, really!?\u201d\u000a\u000a[[Next|Final Encounter-1-6]]<<else>>Of course it\u2019s <<print $mem3>>. He\u2019s been acting completely unlike himself, and it\u2019s time to point him out on it before does anything worse. You see him stuffing some gold coins into his sack a few rooms down and decide to confront him. \u201c<<print $mem3>>, I know who you are, and that disguise of yours might fool them but it won\u2019t fool me.\u201d The rest of your group, hearing the exchange, gathers around the both of you. <<print $mem3>> just stares at you with a confused look. You grab him by his shoulders. \u201cDon\u2019t play dumb with me! Who are you, really!?\u201d\u000a\u000aYou start to shake him violently until the other party members restrain you. \u201cI am <<print $mem3>>! What are you talking about?\u201d Everyone is looking at you with bewilderment. You realize you\u2019ve might have been wrong.\u000a\u000a[[Next|Final Encounter-1-7]]<<endif>>
+p718
+sg23
+VFinal Encounter-1-4
+p719
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I31
+I0
+I5
+I87
+I1
+tp720
+(dp721
+tp722
+Rp723
+sg31
+(lp724
+sg33
+g26
+((I2015
+I3
+I28
+I16
+I19
+I20
+I5
+I87
+I1
+tp725
+(dp726
+tp727
+Rp728
+sbsa(dp729
+g14
+I00
+sg15
+(lp730
+F577.0
+aF1100.0
+asg17
+(itiddlywiki
+Tiddler
+p731
+(dp732
+g21
+VA few seconds pass. \u000a\u201cI\u2019ve known you for years! How could you say something like that to me? Have all of those countless adventures meant nothing to you!?\u201d. \u000a\u201cYeah, he\u2019s been getting a bit loopy, hasn\u2019t he?\u201d says one party member. \u000a\u201cYou\u2019re right. Maybe it is time for a new leader,\u201d says another. \u000aYou\u2019re shocked. Could you really have been wrong? Was it just bad luck? Regardless, you\u2019ve no doubt sullied your reputation with this outburst. You remain quiet to prevent any more embarrassment and go back to collecting your loot. Only time can heal this wound now.
+p733
+sg23
+VFinal Encounter-1-7
+p734
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I32
+I29
+I5
+I87
+I1
+tp735
+(dp736
+tp737
+Rp738
+sg31
+(lp739
+sg33
+g26
+((I2015
+I3
+I28
+I16
+I29
+I57
+I5
+I87
+I1
+tp740
+(dp741
+tp742
+Rp743
+sbsa(dp744
+g14
+I00
+sg15
+(lp745
+F314.0
+aF1092.0
+asg17
+(itiddlywiki
+Tiddler
+p746
+(dp747
+g21
+V<<printname $traitor>> speaks. Or, more accurately, <<printname $traitor>>\u2019s possessor speaks. In a cold, booming voice, it says, \u201cIt looks like you\u2019ve caught me, <<print $name>>. Your intuition is truly superhuman. Not that it matters, however, as I\u2019m afraid tha - \u201c You stab <<printname $traitor>> in the heart. Thank the gods that demons love to monologue. After mourning the loss of <<printname $traitor>> for a bit, the party returns to their loot collecting. Though his death is a tragedy, there is also the mutual knowledge that you prevented the surefire deaths of everybody else. Your team will live to fight another day.
+p748
+sg23
+VFinal Encounter-1-6
+p749
+sg25
+g26
+((I2015
+I3
+I28
+I17
+I29
+I39
+I5
+I87
+I1
+tp750
+(dp751
+tp752
+Rp753
+sg31
+(lp754
+sg33
+g26
+((I2015
+I3
+I28
+I16
+I29
+I57
+I5
+I87
+I1
+tp755
+(dp756
+tp757
+Rp758
+sbsa(dp759
+g14
+I00
+sg15
+(lp760
+F1011.0
+aF460.0
+asg17
+(itiddlywiki
+Tiddler
+p761
+(dp762
+g21
+V<<resetactors>><<nextactor $actor "paranoia" high>><<getvalue $actorPara $actor "paranoia">><<nextrand $paraCheck 100>>As you continue down the cave it suddenly becomes too dark to see only a few steps in front of where your party is. You take out your lamp and light it to give you and your party more vision. <<if not($actor is -1) and $actorPara gte $paracheck>>As soon as you light it <<printname $actor>> starts shouting. \u201cThey\u2019re here, they\u2019re here! Get them away from me!\u201d It takes three people to restrain him and cover his mouth before he can attract more attention. He calms down only when you\u2019ve lit up your lamp. It appears that the darkness was getting to him.<<else>>The lamp lights up a little quicker than usual. You continue on your way.<<endif>>\u000a\u000a[[Next|Out of Food-1]]
+p763
+sg23
+VOut of Food
+p764
+sg25
+g26
+((I2015
+I3
+I28
+I17
+I54
+I57
+I5
+I87
+I1
+tp765
+(dp766
+tp767
+Rp768
+sg31
+(lp769
+sg33
+g26
+((I2015
+I3
+I28
+I17
+I48
+I17
+I5
+I87
+I1
+tp770
+(dp771
+tp772
+Rp773
+sbsa(dp774
+g14
+I00
+sg15
+(lp775
+F1180.0
+aF454.0
+asg17
+(itiddlywiki
+Tiddler
+p776
+(dp777
+g21
+V<<nextactor $actor "greed" low>><<getvalue $actorGreed $actor "greed">><<nextrand $greedCheck 100>>To your amazement you find another human in the cave! He is emaciated, however, looking almost like the skeletons you fought before. You can barely hear him beg for food as his voice has become nothing but a faint crackle. You look at your currrent supplies and see that soon your party will run out of food.\u000a\u000a[[Give the survivor some food|Out of Food-1-1]]\u000a[[Keep the food for yourself|Out of Food-1-2]]
+p778
+sg23
+VOut of Food-1
+p779
+sg25
+g26
+((I2015
+I3
+I28
+I17
+I56
+I18
+I5
+I87
+I1
+tp780
+(dp781
+tp782
+Rp783
+sg31
+(lp784
+sg33
+g26
+((I2015
+I3
+I28
+I17
+I52
+I58
+I5
+I87
+I1
+tp785
+(dp786
+tp787
+Rp788
+sbsa(dp789
+g14
+I00
+sg15
+(lp790
+F1362.0
+aF459.0
+asg17
+(itiddlywiki
+Tiddler
+p791
+(dp792
+g21
+VYou decide that you need these rations if you are to get out of this cave alive. Self-preservation has to be a given in these times. Sucks to be that guy.\u000a\u000a<<if not($actor is -1) && $greedCheck gte $actorGreed>><<printname $actor>> seems to think otherwise, however. <<printname $actor>> kneels down gives the man what seems to be half of his rations.\u000a\u000a"Are you sure this is wise", you ask him. "We have a hard road ahead of us."\u000a"That's true, but this man is suffering more than us.", he says.\u000a\u000a<<printname $actor>> gets up and looks at you. You get the feeling he thinks he's better than you. Asshole.<<endif>>\u000a\u000a[[Next|Out of Food-2-1]]
+p793
+sg23
+VOut of Food-1-2
+p794
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I42
+I18
+I5
+I87
+I1
+tp795
+(dp796
+tp797
+Rp798
+sg31
+(lp799
+sg33
+g26
+((I2015
+I3
+I28
+I17
+I54
+I52
+I5
+I87
+I1
+tp800
+(dp801
+tp802
+Rp803
+sbsa(dp804
+g14
+I00
+sg15
+(lp805
+F1194.0
+aF608.0
+asg17
+(itiddlywiki
+Tiddler
+p806
+(dp807
+g21
+VYou give the man some food. His body becomes much more animated as he attempts to thank you but ends up coughing and wheezing. He's obviously been down here for a very long time. You're sort of amazed he's still even alive.\u000a\u000a<<if not($actor is -1) && $greedCheck gte $actorGreed>>You stand up and look at <<printname $actor>>'s face. He seems really happy that you gave the old man some food. You decide to keep moving and wish the old man good luck.<<endif>>\u000a\u000a[[Next|Out of Food-2-1]]
+p808
+sg23
+VOut of Food-1-1
+p809
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I41
+I41
+I5
+I87
+I1
+tp810
+(dp811
+tp812
+Rp813
+sg31
+(lp814
+sg33
+g26
+((I2015
+I3
+I28
+I17
+I54
+I52
+I5
+I87
+I1
+tp815
+(dp816
+tp817
+Rp818
+sbsa(dp819
+g14
+I00
+sg15
+(lp820
+F1233.0
+aF178.0
+asg17
+(itiddlywiki
+Tiddler
+p821
+(dp822
+g21
+VYou decide to risk it for the biscuit, breaking away from the spell and charging at the abomination. It almost musters the power to impale you with its bony sword, but you barely manage the speed to kill it first.\u000a\u000aThe team lets out a sigh of relief. You are furious - <<printname $actor>> refused your order and almost got you killed as a result.\u000a\u000a[[Confront him|Sudden Encounter-3-1]]\u000a[[Ignore him|Sudden Encounter-3-3]]
+p823
+sg23
+VSudden-Encounter-3-4
+p824
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I20
+I8
+I5
+I87
+I1
+tp825
+(dp826
+tp827
+Rp828
+sg31
+(lp829
+sg33
+g26
+((I2015
+I3
+I28
+I18
+I19
+I50
+I5
+I87
+I1
+tp830
+(dp831
+tp832
+Rp833
+sbsa(dp834
+g14
+I00
+sg15
+(lp835
+F1373.0
+aF178.0
+asg17
+(itiddlywiki
+Tiddler
+p836
+(dp837
+g21
+V<<getvalue $actorBrave $actor "bravery">><<if $actorBrave gte $mercyCheck>>Finally <<printname $actor>> is able to muster the courage to slay the beast. The spell breaks just as his sword enteres the monsters skull, killing it.\u000a\u000aThe team lets out a sigh of relief. You are furious - <<printname $actor>> refused your order and almost got you killed as a result.<<else>><<kill $actor>>But <<printname $actor>> still does not do anything. The monster eventually consumes him. Your team watches in horror as they run out of mana. However, you manage to keep a level head and order your party to reform and kill the monster. After some half-learned manuevers in-case of something like this, the monster is killed.\u000a\u000aThough you are victorious, you only feel loss. Perhaps if you had acted sooner, things could have ended better.\u000a\u000a[[Sudden Encounter-4]]<<endif>>
+p838
+sg23
+VSudden-Encounter-3-3
+p839
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I26
+I26
+I5
+I87
+I1
+tp840
+(dp841
+tp842
+Rp843
+sg31
+(lp844
+sg33
+g26
+((I2015
+I3
+I28
+I18
+I19
+I50
+I5
+I87
+I1
+tp845
+(dp846
+tp847
+Rp848
+sbsa(dp849
+g14
+I00
+sg15
+(lp850
+F1972.0
+aF496.0
+asg17
+(itiddlywiki
+Tiddler
+p851
+(dp852
+g21
+V<<silently>>\u000a<<nextactor $actor "experience" true>>\u000a<<getvalue $actorExp $actor "experience">>\u000a<<if $actor is -1>>\u000a<<nextrand $actor 4>>\u000a<<endif>>\u000a<<nextrand $expCheck 100>>\u000a<<endsilently>>The cavern eventually widens to reveal a huge chamber with a ravine cutting it in half. It\u2019s a long drop - even your oil lamp can\u2019t illuminate the bottom of it - but also not too wide. You easily jump it, and your party begins to follow. <<printname $actor>> is the last to do so. Suddenly he trips, and is almost flung into the abyss! Luckily, you manage to grab his hand. Then a wicked plan enters your mind\u2026 <<printname $actor>> has been a tad suspicious this whole adventure. If he were to, say, accidentally lose his grasp, nobody would notice.\u000a\u000a[["Oops my hand slipped"|Out of Food-3-2]]\u000a[[Pull him up|Out of Food-3-3]]
+p853
+sg23
+VOut of Food-3-1
+p854
+sg25
+g26
+((I2015
+I3
+I28
+I18
+I48
+I19
+I5
+I87
+I1
+tp855
+(dp856
+tp857
+Rp858
+sg31
+(lp859
+sg33
+g26
+((I2015
+I3
+I28
+I18
+I44
+I8
+I5
+I87
+I1
+tp860
+(dp861
+tp862
+Rp863
+sbsa(dp864
+g14
+I00
+sg15
+(lp865
+F2122.0
+aF468.0
+asg17
+(itiddlywiki
+Tiddler
+p866
+(dp867
+g21
+VWith a little sleight of hand, you make it look like he lost his strength. You let go of his hand as he plummets, screaming until he\u2019s too far down to be heard anymore. You can\u2019t even hear him hit the ground, if the there is one. You share the solemn faces on your other party members. <<printname $actor>> is dead and nobody suspects a thing.\u000a\u000a<<kill $actor>.<<nextscene $scene>><<print "[[Next|" + $scene + "]]">>
+p868
+sg23
+VOut of Food-3-2
+p869
+sg25
+g26
+((I2015
+I3
+I28
+I19
+I12
+I49
+I5
+I87
+I1
+tp870
+(dp871
+tp872
+Rp873
+sg31
+(lp874
+sg33
+g26
+((I2015
+I3
+I28
+I18
+I44
+I55
+I5
+I87
+I1
+tp875
+(dp876
+tp877
+Rp878
+sbsa(dp879
+g14
+I00
+sg15
+(lp880
+F2084.0
+aF636.0
+asg17
+(itiddlywiki
+Tiddler
+p881
+(dp882
+g21
+VYou need to clear your mind and focus on the task at hand. With a burst of strength you pull him up and onto the cavern floor. <<printname $actor>> is still petrified with fear, but he thanks you for saving him.\u000a\u000a<<nextscene $scene>><<print "[[Next|" + $scene + "]]">>
+p883
+sg23
+VOut of Food-3-3
+p884
+sg25
+g26
+((I2015
+I3
+I28
+I19
+I12
+I53
+I5
+I87
+I1
+tp885
+(dp886
+tp887
+Rp888
+sg31
+(lp889
+sg33
+g26
+((I2015
+I3
+I28
+I18
+I44
+I55
+I5
+I87
+I1
+tp890
+(dp891
+tp892
+Rp893
+sbsasS'scale'
+p894
+I1
+sS'snapping'
+p895
+I00
+ss.
