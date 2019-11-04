@@ -2,8 +2,12 @@
     <head>
         <title>Kevin Sun</title>
         <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div id="content"  style = "position:fixed; left:8%; top:5%;font-family: 'Open Sans', sans-serif;">
+            <h1>This is Kevin Sun's Website</h1>
+        </div>
     </body>
 </head>
 <script>
@@ -62,13 +66,43 @@ var site = [
         title: "Music",
         items: [
             {
-                name:"Papers",
+                name:"Papers - Ongoing",
                 link:"https://papersband.bandcamp.com/releases"
             },
         ]
     },
     {
-        title: "Music",
+        title: "Teaching",
+        items: [
+            {
+                name:"Code Nation - Ongoing",
+                link:"https://codenation.org/"
+            },
+        ]
+    },
+    {
+        title: "Employment",
+        items: [
+            {
+                name: "Pixar, January 2018 - August 2019",
+                link: "https://www.pixar.com/"
+            },
+            {
+                name: "Haouli, October 2017 - January 2018",
+                link: "https://www.hauoli.co/index.html"
+            },
+            {
+                name: "Google, May 2017 - August 2017",
+                link: "https://www.google.com/"
+            },
+            {
+                name: "Certain Affinity, June 2016 - August 2016",
+                link: "https://www.certainaffinity.com/"
+            },
+        ]
+    },
+    {
+        title: "Email",
         items: [
             {
                 name:"kevin.sun96@gmail.com",
@@ -78,14 +112,17 @@ var site = [
     },
 ];
 
+var div = document.getElementById("content");
+
 site.forEach(function (s) {
     var sectionParagraph = document.createElement("p");
     var section = document.createElement("strong");
     section.innerHTML = s.title; 
 
+    sectionParagraph.style="position:relative;left:2%;";
     sectionParagraph.appendChild(section);
 
-    document.body.appendChild(sectionParagraph);
+    div.appendChild(sectionParagraph);
 
     s.items.forEach(function(i) {
         var itemParagraph = document.createElement("p");
@@ -93,9 +130,10 @@ site.forEach(function (s) {
         item.innerHTML = i.name;
         item.href = i.link;
 
+        itemParagraph.style="position:relative;left:4%;";
         itemParagraph.appendChild(item);
 
-        document.body.appendChild(itemParagraph);
+        div.appendChild(itemParagraph);
     });
 });
 </script>
