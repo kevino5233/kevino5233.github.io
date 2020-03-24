@@ -1,0 +1,20 @@
+<body>
+    <style>
+    .stacked-elem {
+        display:inline-block;
+        margin: 10px;
+    }
+    </style>
+    <div class="stacked-elem">
+        <img class="scrolling-img" src="assets/angle-bottom.svg">
+        <p>asdf</p>
+    </div>
+    <script>
+    var b = document.getElementsByTagName("body")[0];
+    var se = document.getElementsByClassName("stacked-elem")[0];
+    for (var x = 0; x < 10; x++) {
+        var c = se.cloneNode(true);
+        b.appendChild(c);
+    }
+    </script>
+</body>
