@@ -1,20 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SVG Scrolling Test</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
 <body>
     <style>
-    .stacked-elem {
-        display:inline-block;
-        margin: 10px;
+    img {
+    }
+    .scroller-container {
+        border-style: dotted;
+        overflow: hidden;
+        width: 90%;
+        white-space: nowrap;
+    }
+	.scroller-container{
+		background-color: #eeeeee;
+	}
+    .scrolling-img {
+        display: inline-block;
+        width: 25%;
+    }
+    .scrolling-img img{
+        width: 100%;
+    }
+    .scrolling-img .scrolling-img-info {
+        position: absolute;
+        bottom:0px;
+        left: 90%;
+        display: none;
+    }
+	.scroller-container .scrolling-img {
+		filter: saturate(30%);
+	}
+	.scroller-container:hover .scrolling-img:hover .scrolling-img-info{
+        display: block;
+    }
+	.scroller-container:hover .scrolling-img:hover{
+		filter: saturate(100%);	
+		background-color: #ffffff;
+	}
+    .scroller {
+        position: relative;
+    }
+    .images {
+        float: none;
+        display: inline;
     }
     </style>
-    <div class="stacked-elem">
-        <img class="scrolling-img" src="assets/angle-bottom.svg">
-        <p>asdf</p>
+    <div id="app">
+        <scroller
+            v-for="s in scroller_sections"
+            v-bind:svg_list="s.images"
+            v-bind:key="s.id"></scroller>
     </div>
     <script>
-    var b = document.getElementsByTagName("body")[0];
-    var se = document.getElementsByClassName("stacked-elem")[0];
-    for (var x = 0; x < 10; x++) {
-        var c = se.cloneNode(true);
-        b.appendChild(c);
+	function makeStopper(elem) {
+	    return function() {
+	 	   return elem._scroll = false;
+	    };
+	}
+
+	function makeGoer(elem) {
+	    return function() {
+	 	   return elem._scroll = true;
+	    };
+	}
+
+    var scrollerContainer = null;
+    var scrollers = null;
+    function start() {
+        scrollerContainer = document.getElementsByClassName("scroller-container");
+        scrollers = document.getElementsByClassName("scroller");
+
+        var x = 0;
+        for (container of scrollerContainer) {
+            var s = container.children[0];
+            s.left = 0;
+            s.delta = (x % 3) + 1;
+            x += 1;
+
+            var images = s.children[0];
+            var clone = images.cloneNode(true);
+            s.appendChild(clone);
+            images.id = "img" + x;
+
+            s._scroll = true;
+            container.addEventListener("mouseover", makeStopper(s));
+            container.addEventListener("mouseout", makeGoer(s));
+        }
+        moveLeft();
     }
+    function moveLeft() {
+        for (s of scrollers) {
+            if (s._scroll) {
+                var images = s.children[0];
+                s.left -= s.delta;
+                if (s.left <= -images.offsetWidth) {
+                    s.left += images.offsetWidth;
+                }
+                s.style.left = s.left + "px";
+            }
+        }
+        setTimeout(moveLeft, 25);
+    }
+    // start();
+    Vue.component('scrolling-image', {
+        props: ['svg_link'],
+        template: `
+            <div class="scrolling-img">
+                <img v-bind:src="svg_link">
+                <div class="scrolling-img-info">
+                    <p>pdf</p>
+                    <p>svg</p>
+                    <p>png</p>
+                </div>
+            </div>
+        `
+    });
+    Vue.component('scroller', {
+        props: ['svg_list'],
+        template: `
+            <div class="scroller-container">
+                <div class="scroller">
+                    <div class="images">
+                        <scrolling-image
+                            v-for="s in svg_list"
+                            v-bind:svg_link="'assets/' + s.link"
+                            v-bind:key="s.id">
+                        </scrolling-image>
+                    </div>
+                </div>
+            </div>
+        `
+    });
+    var image_lists = [
+        {
+            images: [
+                {link: "arrow-right.svg"},
+                {link: "arrow-top.svg"},
+                {link: "angle-right.svg"},
+                {link: "angle-bottom.svg"},
+                {link: "arrow-left.svg"}
+            ],
+        },
+        {
+            images: [
+                {link: "arrow-right.svg"},
+                {link: "arrow-top.svg"},
+                {link: "angle-right.svg"},
+                {link: "angle-bottom.svg"},
+                {link: "arrow-left.svg"}
+            ],
+        },
+        {
+            images: [
+                {link: "angle-bottom.svg"},
+                {link: "angle-left.svg"},
+                {link: "angle-right.svg"},
+                {link: "angle-top.svg"},
+                {link: "arrow-right.svg"}
+            ],
+        },
+        {
+            images: [
+                {link: "angle-bottom.svg"},
+                {link: "arrow-bottom.svg"},
+                {link: "angle-left.svg"},
+                {link: "arrow-bottom.svg"},
+                {link: "angle-right.svg"},
+                {link: "arrow-bottom.svg"}
+            ],
+        }
+    ];
+    var i = 0;
+    for (il of image_lists) {
+        il.id = i++;
+        for (im of il.images) {
+            im.id = i++;
+        }
+    }
+    var app = new Vue({
+        el: "#app",
+        data: {
+            scroller_sections: image_lists
+        }
+    });
+    start();
     </script>
 </body>
