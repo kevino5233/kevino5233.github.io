@@ -2,9 +2,17 @@
     --website-background-color: #a4e622;
     --image-background-color: #11aaff;
 }
+.headline {
+    text-align: center;
+}
 .propaganda {
     width: 100%;
     text-align: center;
+    display: inline-block;
+}
+.headline .propaganda {
+    width: 70%;
+    text-align: left;
 }
 body {
     background-color: var(--website-background-color);

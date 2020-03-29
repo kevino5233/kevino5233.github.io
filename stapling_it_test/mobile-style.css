@@ -16,3 +16,25 @@
     right: 1vh;
     font-size: 5vh;
 }
+
+.headline {
+    text-align: left;
+}
+
+.headline .propaganda {
+    position: relative;
+    left: 1vh;
+    font-size: 5vh;
+    width: 100%;
+}
+
+@media (max-width: 400px) {
+    .headline .propaganda {
+        font-size: 4.5vh;
+        width: 90%;
+    }
+}
+
+.propaganda {
+    font-size: 3vh;
+}
