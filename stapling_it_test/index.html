@@ -2,59 +2,22 @@
 <html>
 <head>
   <title>SVG Scrolling Test</title>
-  <script src="https://unpkg.com/vue"></script>
+  <!--<script src="https://unpkg.com/vue"></script>-->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" media="(any-pointer:coarse)" href="mobile-style.css">
+
 </head>
 <body>
-    <style>
-    img {
-    }
-    .scroller-container {
-        border-style: dotted;
-        overflow: hidden;
-        width: 90%;
-        white-space: nowrap;
-    }
-	.scroller-container{
-		background-color: #eeeeee;
-	}
-    .scrolling-img {
-        display: inline-block;
-        width: 25%;
-    }
-    .scrolling-img img{
-        width: 100%;
-    }
-    .scrolling-img .scrolling-img-info {
-        position: absolute;
-        bottom:0px;
-        left: 90%;
-        display: none;
-    }
-	.scroller-container .scrolling-img {
-		filter: saturate(30%);
-	}
-	.scroller-container:hover .scrolling-img:hover .scrolling-img-info{
-        display: block;
-    }
-	.scroller-container:hover .scrolling-img:hover{
-		filter: saturate(100%);	
-		background-color: #ffffff;
-	}
-    .scroller {
-        position: relative;
-    }
-    .images {
-        float: none;
-        display: inline;
-    }
-    </style>
     <div id="app">
         <scroller
             v-for="s in scroller_sections"
-            v-bind:svg_list="s.images"
-            v-bind:key="s.id"></scroller>
+            :svg_list="s.images"
+            :key="s.id"></scroller>
     </div>
     <script>
+
 	function makeStopper(elem) {
 	    return function() {
 	 	   return elem._scroll = false;
@@ -75,7 +38,7 @@
 
         var x = 0;
         for (container of scrollerContainer) {
-            var s = container.children[0];
+            var s = container.children[1];
             s.left = 0;
             s.delta = (x % 3) + 1;
             x += 1;
@@ -86,14 +49,15 @@
             images.id = "img" + x;
 
             s._scroll = true;
-            container.addEventListener("mouseover", makeStopper(s));
-            container.addEventListener("mouseout", makeGoer(s));
+            s.addEventListener("mouseover", makeStopper(s));
+            s.addEventListener("mouseout", makeGoer(s));
         }
         moveLeft();
     }
+    var stop = false;
     function moveLeft() {
         for (s of scrollers) {
-            if (s._scroll) {
+            if (s._scroll && !stop) {
                 var images = s.children[0];
                 s.left -= s.delta;
                 if (s.left <= -images.offsetWidth) {
@@ -104,35 +68,92 @@
         }
         setTimeout(moveLeft, 25);
     }
-    // start();
     Vue.component('scrolling-image', {
-        props: ['svg_link'],
+        props: ['svg_link', 'tick'],
         template: `
-            <div class="scrolling-img">
-                <img v-bind:src="svg_link">
-                <div class="scrolling-img-info">
-                    <p>pdf</p>
-                    <p>svg</p>
-                    <p>png</p>
+            <div
+                @mouseleave="chooseInheritColor"
+                @mouseenter="chooseRandomColor"
+                @touchend="mobileTest"
+
+                :style="parentDivStl"
+                class="scrolling-img">
+                <img :src="svg_link">
+                <div
+                    v-if="showInfo"
+                    class="scrolling-img-info">
+                    <p><a href="index.html">pdf</a></p>
+                    <p><a href="index.html">svg</a></p>
+                    <p><a href="index.html">png</a></p>
+                    </div>
                 </div>
             </div>
-        `
+        `,
+        data: function() {
+            return {
+                parentDivStl: {
+                    "background-color": "inherit"
+                },
+                showInfo: false
+            }
+        },
+        methods: {
+            mobileTest: function() {
+                this.$emit("mobile-test-event");
+                this.$nextTick(function() {
+                    this.chooseRandomColor();
+                });
+            },
+            chooseInheritColor: function() {
+                this.parentDivStl["background-color"] = "inherit";
+                this.showInfo = false;
+            },
+            chooseRandomColor: function() {
+                // setPropToRandomColor("--image-background-color", colors);
+                var color_idx = getRandomInt(0, colors.length)
+                var color = colors[color_idx];
+                // let d = document.documentElement;
+                // d.style.setProperty(prop, color);
+                this.parentDivStl["background-color"] = color;
+
+                this.showInfo = true;
+            }
+        },
+        watch: {
+            tick: function() {
+                this.chooseInheritColor();
+            }
+        }
     });
     Vue.component('scroller', {
         props: ['svg_list'],
         template: `
             <div class="scroller-container">
+                <h1 class="propaganda">PROPAGANDA</h1>
                 <div class="scroller">
                     <div class="images">
                         <scrolling-image
+                            @mobile-test-event="mobileTest"
                             v-for="s in svg_list"
-                            v-bind:svg_link="'assets/' + s.link"
-                            v-bind:key="s.id">
+                            
+                            :tick="tick"
+                            :svg_link="'assets/' + s.link"
+                            :key="s.id">
                         </scrolling-image>
                     </div>
                 </div>
             </div>
-        `
+        `,
+        data: function() {
+            return {
+                tick: false
+            }
+        },
+        methods: {
+            mobileTest: function() {
+                this.tick = !this.tick;
+            }
+        }
     });
     var image_lists = [
         {
@@ -173,6 +194,34 @@
             ],
         }
     ];
+	function getRandomInt(min, max) {
+	 	min = Math.ceil(min);
+	  	max = Math.floor(max);
+	  	return Math.floor(Math.random() * (max - min)) + min;
+	}
+    function setPropToRandomColor(prop, colors) {
+        var color_idx = getRandomInt(0, colors.length)
+        var color = colors[color_idx];
+        let d = document.documentElement;
+        d.style.setProperty(prop, color);
+        return color_idx;
+    }
+    var colors = [
+        "rgb(245 ,65 ,92)",
+        "rgb(168 ,214 ,0)",
+        "rgb(125 ,125 ,255)",
+        "rgb(255 ,156 ,26)",
+        "rgb(6 ,220 ,255)",
+        "rgb(255 ,0 ,169)",
+        "rgb(255 ,215 ,0)"]
+    var idx = setPropToRandomColor("--website-background-color", colors);
+    colors[idx] = colors[colors.length - 1];
+    colors.pop();
+    // setPropToRandomColor("--image-background-color", colors);
+
+    var computedStyle = getComputedStyle(document.documentElement);
+    var is_mobile = computedStyle.getPropertyValue("--is-mobile") !== "";
+
     var i = 0;
     for (il of image_lists) {
         il.id = i++;
@@ -183,9 +232,10 @@
     var app = new Vue({
         el: "#app",
         data: {
-            scroller_sections: image_lists
-        }
+            scroller_sections: image_lists,
+        },
     });
-    start();
+    if (!is_mobile)
+        start();
     </script>
 </body>

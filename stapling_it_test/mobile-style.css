@@ -1,0 +1,18 @@
+:root {
+    --is-mobile: 1;
+}
+
+.scrolling-img .scrolling-img-info {
+    height: 80vh;
+}
+
+.scrolling-img {
+    display: block;
+    width: 100%;
+}
+
+.scrolling-img .scrolling-img-info p {
+    top: 3vh;
+    right: 1vh;
+    font-size: 5vh;
+}
