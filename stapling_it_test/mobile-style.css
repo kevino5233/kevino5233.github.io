@@ -3,7 +3,7 @@
 }
 
 .scrolling-img .scrolling-img-info {
-    height: 80vh;
+    height: inherit;
 }
 
 .scrolling-img {
@@ -12,7 +12,7 @@
 }
 
 .scrolling-img .scrolling-img-info p {
-    top: 3vh;
+    top: 1vh;
     right: 1vh;
     font-size: 5vh;
 }
