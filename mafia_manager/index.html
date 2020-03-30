@@ -1,0 +1,279 @@
+<html>
+    <head>
+        <title>Mafia manager</title>
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <style>
+        .gameInfo {
+            width: 100%;
+            position: relative;
+        }
+        .players,.gameRules {
+            display: inline-block;
+        }
+        .players {
+            position: relative;
+            top: 0px;
+        }
+        .gameRules {
+            position: absolute;
+            left: 40%;
+            width: 50%;
+        }
+        img {
+            --img-side-length: 50px;
+            width: var(--img-side-length);
+            height: var(--img-side-length);
+        }
+        </style>
+
+        <div id="app">
+            <h1>Mafia Manager!</h1>
+            <h2>Enter player names</h2><input id="nameinput">
+            <button v-if="canStart" @click="start">Start!</button>
+            <br>
+            <h1 v-if="gameHasWinner" class="winDialogue">
+            {{ winner }} Wins!
+            </h1>
+
+            <div class="gameInfo">
+                <div class="players">
+                    <player
+                        v-for="p in players"
+                        @player-killed="checkGame" 
+                        :started="started"
+                        :name="p.name"
+                        :role="p.role"
+                        :role-imgs="roleImgs"
+                        :skull-img="skullImg"
+                        :key="p.name">
+                    </player>
+                </div>
+                <div class="gameRules">
+                    <h1>Rules</h1>
+                    <ul>
+                        <li>Win Conditions
+                            <ul>If there a greater or equal number of Mafia members than town members, Mafia wins</ul>
+                            <ul>If there are no more Mafia, town wins</ul>
+                        </li>
+                        <li>Night</li>
+                        <ol>
+                            <li>Instruct everyone to turn off their mics and cover their eyes.</li>
+                            <li>Tell the Cop to wake up
+                                <ul>
+                                    <li><strong>Do this even if the cop has been killed</strong></li>
+                                    <li>Ask the cop who they want to check. they will privately message you</li>
+                                    <li>If they are a mafia member, give them a thumbs up. If they are a villager, thumbs down</li>
+                                </ul>
+                            </li>
+                            <li>Tell the Medic to wake up
+                                <ul>
+                                    <li><strong>Do this even if the medic has been killed</strong></li>
+                                    <li>Ask the medic who they want to protect. they will privately message you</li>
+                                    <li>Whoever the medic chooses, that person cannot be killed by the mafia or the vigilante.</li>
+                                </ul>
+                            </li>
+                            <li>Tell the Vigilante to wake up
+                                <ul>
+                                    <li><strong>Do this even if the vigilante has been killed</strong></li>
+                                    <li>The vigilante has one bullet, that they can use to kill one person</li>
+                                    <li>Ask the vigilante if they'd like to use their bullet <strong>even if they have already used their bullet</strong>. They will privately message you</li>
+                                </ul>
+                            </li>
+                            <li>Tell the Mafia to wake up
+                                <ul>
+                                    <li>Ask who the Mafia would like to kill.</li>
+                                    <li>The Mafia can kill 1 person per round <strong>except the first night</strong>.</li>
+                                </ul>
+                            </li>
+                        </ol>
+                        <li>Day</li>
+                        <ol>
+                            <li>Instruct everyone to wake up, turn their mics back on, and announce who died</li>
+                            <li>Allow deliberations to go on for no more than 10 minutes
+                                <ul>
+                                    <li>Towns people are allowed to say whatever they want</li>
+                                    <li>Dead players may not speak</li>
+                                    <li>The day ends immediately if the town decides to kill someone</li>
+                                    <li>
+                                        <strong>How to motion to kill someone</strong>
+                                        <ol>
+                                            <li>One townsmember motions to kill another an accusee</li>
+                                            <li>Another townsmember must second</li>
+                                            <li>The original motioner can make their case why they should kill the accusee</li>
+                                            <li>The accusee may give their defense</li>
+                                            <li>The whole town then covers their eyes and votes. A majority vote is required to kill the accusee</li>
+                                            <li>After the vote is taken, regardless of the results, the town lifts their heads up to see how other people voted</li>
+                                        </ol>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+        var data = {
+            players: [],
+            started: false,
+            roleImgs: {
+                mafia: "assets/mafia.png",
+                cop: "assets/cop.png",
+                medic: "assets/medic.png",
+                vigilante: "assets/vig.png",
+                town: "assets/town.png",
+            },
+            skullImg: "assets/skull.png",
+            winner: ""
+        };
+
+        document.addEventListener('keydown', event => {
+            if (event.code == "Enter") {
+                var input = document.getElementById("nameinput");
+                var name = input.value;
+                if (name === "") {
+                    return;
+                }
+                input.value = "";
+                var obj = {
+                    name: name,
+                    role: "",
+                };
+                data.players.push(obj);
+            }
+        });
+
+        Vue.component('player', {
+            props: ['started','name','role','role-imgs', 'skull-img'],
+            template: `
+                <h1>
+                    <img
+                        v-if="started" :src="roleImg">
+                    <img
+                        v-if="alive"
+                        @click="kill"
+                        :src="skullImg">
+                    <img
+                        v-if="deadskull"
+                        :style="deadStyle"
+                        :src="skullImg">
+                    {{ name }}
+                </h1>
+            `,
+            data: function() {
+                return {
+                    dead: false,
+                    deadStyle: {
+                        filter: "opacity(25%)"
+                    }
+
+                }
+            },
+            computed: {
+                roleImg: function() {
+                    return this.roleImgs[this.role];
+                },
+                alive: function() {
+                    return this.started && !this.dead;
+                },
+                deadskull: function() {
+                    return this.started && this.dead;
+                }
+            },
+            methods: {
+                kill: function() {
+                    console.log(`${this.name} is kill`);
+                    this.dead = true;
+                    this.$emit("player-killed");
+                }
+            }
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: data,
+            computed: {
+                canStart: function() {
+                    return this.players.length > 5;
+                },
+                gameHasWinner: function() {
+                    return this.winner !== "";
+                }
+            },
+            methods: {
+                getRoleImg: function(role) {
+                    return this.roleImgs[role];
+                },
+                // http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+                shuffle: function(array) {
+                    var currentIndex = array.length
+                    , temporaryValue
+                    , randomIndex
+                    ;
+
+                    // While there remain elements to shuffle...
+                    while (0 !== currentIndex) {
+
+                        // Pick a remaining element...
+                        randomIndex = Math.floor(Math.random() * currentIndex);
+                        currentIndex -= 1;
+
+                        // And swap it with the current element.
+                        temporaryValue = array[currentIndex];
+                        array[currentIndex] = array[randomIndex];
+                        array[randomIndex] = temporaryValue;
+                    }
+
+                    return array;
+                },
+                start: function() {
+                    var roles = ["cop","medic"]
+                    if (this.players.length > 5) {
+                        roles.push("vigilante");
+                    }
+                    var townAndMafiaNum = this.players.length - roles.length;
+                    var numMafia = townAndMafiaNum > 3 ? 2 : 1;
+                    var numTown = townAndMafiaNum - numMafia;
+                    for (var i = 0; i < numMafia; i++)
+                        roles.push("mafia");
+                    for (var i = 0; i < numTown; i++)
+                        roles.push("town");
+					this.shuffle(roles);
+                    for (var i = 0; i < roles.length; i++)
+                        this.players[i].role = roles[i];
+                    this.started = true;
+                },
+                checkGame: function() {
+                    console.log("asdf");
+                    var children = this.$children;
+                    var numTown = 0;
+                    var numMafia = 0;
+                    for (c of children) {
+                        if (!c.dead) {
+                            if (c.role !== "mafia") {
+                                numTown++;
+                            } else {
+                                numMafia++;
+                            }
+                        }
+                    }
+                    if (numMafia >= numTown) {
+                        // Mafia wins!
+                        this.winner = "Mafia";
+                    }
+                    if (numMafia == 0) {
+                        // Town wins!
+                        this.winner = "Town";
+                    }
+                }
+            }
+        });
+
+        </script>
+
+    </body>
+</html>
